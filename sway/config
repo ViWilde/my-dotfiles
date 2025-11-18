@@ -32,7 +32,7 @@ for_window [app_id="firefoxdeveloperedition"] dim_inactive 0.00
 titlebar_separator disable
 
 # set $opacity 0.7
-set $opacity 0.8
+set $opacity 0.9
 for_window [app_id=".*"] opacity $opacity
 # for_window [app_id="okular"] opacity 0.6
 
@@ -46,9 +46,9 @@ exec_always "export QT_QPA_PLATFORM=wayland;xcb"
 exec_always "export QT_QPA_PLATFORMTHEME=qt5ct"
 exec_always "export QT_STYLE_OVERRIDE=kvantum"
 
-exec_always "export TERMINAL=wezterm"
+exec_always "export TERMINAL=ghostty"
 exec_always 'export MOZ_ENABLE_WAYLAND=1'
-exec_always "export BROWSER=/usr/bin/firefox-developer-edition"
+exec_always "export BROWSER=/usr/bin/vivaldi"
 exec 'export GTK_USE_PORTAL=0'
 # exec --no-startup-id "export GTK_THEME=Dracula"
 # exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Nordic-bluish-accent"'
@@ -56,12 +56,13 @@ exec 'export GTK_USE_PORTAL=0'
 # exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Fantasma-GTK"'
 # exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Dracula"'
 exec --no-startup-id "export GTK_THEME=rose-pine-moon-gtk"
-exec_always 'gsettings set org.gnome.desktop.interface icon-theme oomox-rose-pine-moon'
-exec_always 'gsettings set org.gnome.desktop.interface gtk-theme rose-pine-moon-gtk'
+exec_always 'gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Mauve'
+exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "rose-pine-moon-gtk"'
+
 # exec_always 'gsettings set org.gnome.desktop.interface icon-theme "Fantasma-GTK"'
 # exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Midnight-Green"'
 # exec_always 'gsettings set org.gnome.desktop.interface icon-theme "Midnight-Green"'
-exec_always 'gsettings set org.gnome.desktop.interface cursor-theme Dracula-cursors'
+# exec_always 'gsettings set org.gnome.desktop.interface cursor-theme Dracula-cursors'
 exec_always 'gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"'
 exec_always 'gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"'
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -77,12 +78,20 @@ exec "systemctl start --user mopidy"
 exec "systemctl start --user 5e-api"
 exec "systemctl start --user syncthing"
 exec "~/bin/eclient"
+exec "emacs --name=emacs-scratchpad"
 
 
 
 input * {
       xkb_options parens:swap_brackets
 }
+
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    middle_emulation enabled
+}
+# Potentially made redundant due to keyd magic
 
 output HDMI-A-1 pos 0 0 res 1920x1080
 # output eDP-1 pos 3840 1  res 1920x1200
@@ -99,13 +108,15 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # default_border pixel 0
 # new_float none
 # default_floating_none border
-default_border pixel 2
+default_border normal 2
+for_window [app_id="vivaldi-stable"] border pixel 2
+
 # default_border pixel 1
 # TODO Borders
 
 # border pixel 5
 gaps inner 4
-gaps outer 10
+gaps outer 5
 smart_borders on
 smart_gaps on
 
@@ -168,10 +179,11 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec tilix
 # bindsym $mod+Return exec 'env SHELL=/bin/xonsh terminology'
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # Start dmenu (a program launcher)
 bindsym ctrl+shift+space exec ulauncher-toggle
@@ -224,23 +236,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+Mod1+h split h
-
-# split in vertical orientation
-bindsym $mod+Mod1+v split v
-
-bindsym $mod+Mod1+t split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+bindsym $mod+i split h
+bindsym $mod+o split v
+bindsym $mod+p split toggle
 # change container layout (stacked, tabbed, toggle split)
-# group
-bindsym $mod+g layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+u layout splitv
 bindsym $mod+y layout splith
+bindsym $mod+u layout splitv
+# bindsym $mod+g layout stacking
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -256,16 +263,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Math"
-set $ws2 "2:CS164"
-set $ws3 "3:PS1"
-set $ws4 "4:Club"
-set $ws5 "5:Research"
-set $ws6 "6:Writing"
-set $ws7 "7:RPG"
-set $ws8 "8:Chores"
-set $ws9 "9:???"
-set $ws10 "10:???"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -351,7 +358,7 @@ exec_always --no-startup-id "~/bin/autosuspend"
 exec_always --no-startup-id "sudo updatedb"
 exec_always --no-startup-id "~/bin/laptop.sh"
 # output "*" bg "/home/vivien/backgrounds/nebulae-sky" fill
-output "*" bg "/home/vivien/Pictures/backgrounds/panopticon.jpg" fill
+output "*" bg "/home/vivien/Pictures/backgrounds/flondon/welcome.jpeg" fill
 # output "*" bg "/home/vivien/Pictures/backgrounds/morgana.jpg" fill
 # output "*" bg "/home/vivien/backgrounds/squid" fill
 exec --no-startup-id nm-applet
@@ -362,7 +369,7 @@ exec libinput-gestures
 # exec --no-startup-id "onedrive --monitor --confdir ~/.config/onedrivePersonal"
 # exec --no-startup-id "compton -cb --config ~/.config/picom/picom.conf"
 # exec 'env SHELL=/bin/xonsh terminology'
-exec $TERMINAL
+# exec $TERMINAL
 exec "killall -9 emacs"
 exec "trash ~/.config/emacs/.cache/.emacs.desktop.lock"
 # exec_always --no-startup-id "cd /home/vivien/apps/5e-srd-api && docker compose up --restart always" # Run the 5e API on startup
@@ -373,11 +380,11 @@ exec "synapse -s &"
 # Window focus
 #bindsym $mod+v [class="Vivaldi-stable"] focus
 # bindsym $mod+Shift+v exec nextmatch Firefox
-bindsym $mod+v exec firefox-developer-edition
-bindsym $mod+e exec emacsclient -nc --eval "(progn (doom/switch-to-scratch-buffer) (consult-buffer))"
-# bindsym $mod+e exec ~/bin/eclient
-bindsym $mod+x exec emacsclient -nc --eval "(doom/switch-to-scratch-buffer)"
+bindsym $mod+v exec $BROWSER
 bindsym $mod+Shift+e exec emacsclient  -nc --eval "(deft-new-file)"
+bindsym $mod+x exec emacsclient -nc --eval "(progn (doom/switch-to-scratch-buffer) (consult-buffer))"
+# bindsym $mod+e exec ~/bin/eclient
+bindsym $mod+e exec emacsclient -nc --eval "(doom/switch-to-scratch-buffer)"
 # bindsym $mod+\/ exec com.github.alainm23.planner.quick-add
 # bindsym $mod+n exec nextmatch Org.gnome.Nautilus
 # bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/rohan/drive/School")'
@@ -394,17 +401,24 @@ bindsym $mod+minus scratchpad show
 
 #bindsym $mod+0 [class="Mailspring"] scratchpad show
 # bindsym Mod1+3 [class="Tilix"] scratchpad show
-bindsym Mod1+3 [app_id="wezterm"] scratchpad show
+bindsym Mod1+3 [app_id="ghostty"] scratchpad show
 
 # bindsym $mod+3 [class="Tilix"] scratchpad show
-bindsym $mod+Shift+s [class="Spotify"] scratchpad show
+# bindsym $mod+Shift+s [class="Spotify"] scratchpad show
 # bindsym $mod+Shift+d [title="Discord"] scratchpad show
-bindsym $mod+n [class="Emacs"] scratchpad show
-bindsym $mod+b [class="Firefox"] scratchpad show
+for_window [app_id="emacs-scratchpad"] move window to scratchpad
+bindsym $mod+n [app_id="emacs-scratchpad"] scratchpad show
+# bindsym $mod+n [app_id="emacs"] show
+bindsym $mod+b [app_id="vivaldi-stable"] scratchpad show
+bindsym $mod+Shift+s [app_id="tidal-hifi"] scratchpad show
+
 # bindsym $mod+Shift+d [class="Vivaldi-stable" instance="discord.com__login"] scratchpad show
 
 
 for_window [instance="spotify"] sticky enable
+# for_window [app_id="tidal-hi-fi"] sticky enable
+# for_window [app_id="emacs"] sticky enable
+# for_window [all] sticky enable
 for_window [title="fzf-switcher"] floating enable
 for_window [title="Extension: (Quick Commands) - Quick Commands — Mozilla Firefox"] floating enable
 # for_window [title="Extension: (Quick Commands) - Quick Commands — Mozilla Firefox"] sticky enable
@@ -438,7 +452,7 @@ exec swayidle -w\
 ## Lock Screen
     bindsym $mod+f1 exec ~/.config/sway/scripts/lockman.sh
 
-bindsym print exec '/usr/bin/grimshot --notify save area'
+bindsym print exec '/usr/bin/grimshot --notify savecopy anything'
 
     bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
 
@@ -492,34 +506,42 @@ for_window [app_id="firefoxdeveloperedition" title="Firefox — Sharing Indicato
 for_window [app_id="firefoxdeveloperedition"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
 
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
-# Rose Pine
-# set primary Rosé Pine Moon colorscheme colors
-set $base           #232136
-set $base_trans     #232136a0
-set $surface        #2a273f
-set $overlay        #393552
-set $muted          #6e6a86
-set $subtle         #908caa
-set $text           #e0def4
-set $love           #eb6f92
-set $gold           #f6c177
-set $rose           #ea9a97
-set $pine           #3e8fb0
-set $foam           #9ccfd8
-set $iris           #c4a7e7
-set $highlightlow   #2a283e
-set $highlightmed   #44415a
-set $highlighthigh  #56526e
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $teal
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
-# Teming border and Windows --------------
-# target                 title     bg           text   indicator  border
-client.focused           $rose     $base_trans $text  $rose      $rose
-client.focused_inactive  $text     $base_trans $text  $subtle    $surface
-client.unfocused         $text     $base_trans $text  $overlay   $overlay
-client.urgent            $text     $base_trans $text  $love      $love
-client.placeholder       $base_trans    $base_trans $text  $overlay   $overlay
-client.background        $base_trans
+
 
 #
 # Status Bar:
@@ -530,6 +552,23 @@ bar {
     position top
     mode hide
     modifier Mod4
+	font pango:RobotoSlab, FontAwesome5Free, FontAwesome5Brands, SymbolsNerdFont 10
+    height 50
+    tray_padding 10px
+    separator_symbol ""
+
+  colors {
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    focused_separator  $base
+
+    # target           border bg        text
+    focused_workspace  $base  $mauve    $crust
+    active_workspace   $base  $surface2 $text
+    inactive_workspace $base  $base     $text
+    urgent_workspace   $base  $red      $crust
+  }
 }
 
 #

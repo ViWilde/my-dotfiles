@@ -32,7 +32,7 @@
                                         ; `load-theme' function. This is the default:
                                         ; (setq doom-theme 'doom-magnus)
 ;; (setq doom-theme 'doom-rose-pine-moon)
-(setq! catppuccin-flavor 'mocha)
+(setq! catppuccin-flavor 'macchiato)
 (setq doom-theme 'catppuccin)
 ;; (setq doom-theme 'doom-nord)
 ;; (setq! doom-nord-brighter-comments t)
@@ -89,7 +89,7 @@
 
                                         ; (run-at-time "5 min" 300 'recentf-save-list)
 (sp-use-paredit-bindings)
-(add-to-list 'Info-directory-list "/home/rohan/drive/books/nonfic/sicp-texinfo" t)
+;; (add-to-list 'Info-directory-list "/home/rohan/drive/books/nonfic/sicp-texinfo" t)
 (add-to-list 'load-path "/home/vivien/.config/doom/local-packages")
 (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))
@@ -122,7 +122,7 @@
 (global-visual-line-mode 1)
 (global-undo-tree-mode 1)
                                         ;(global-origami-mode 1)
-(global-tree-sitter-mode 1)
+;; (global-tree-sitter-mode 1)
 (global-hide-mode-line-mode -1)
 (tab-bar-mode -1)
 (electric-pair-mode 1)
@@ -145,6 +145,8 @@
 
 
 ;;; Functions
+
+
 (defun display-time-update--load ()
   "")
 
@@ -164,7 +166,7 @@
 
 (defun hugo-dated-post ()
   (interactive)
-  (easy-hugo-newpost (concat (format-time-string "2350-%m-%d") ".org"))
+  (easy-hugo-newpost (concat (format-time-string "2530-%m-%d") ".org"))
   )
 
 (defun compile-graphviz ()
@@ -185,6 +187,8 @@
   (interactive)
   (find-and-replace "'" "’")          ; Apostrophe -> Right quote
   (find-and-replace "`" "‘"))            ; Backtick -> Left quote
+
+
 
 
 
@@ -440,6 +444,8 @@ ARG has the same meaning as for `kill-sexp'."
 
 ;; (use-package! deft)
 ;;; Misc variable modifications
+
+
 ;;;; Frequently update recentf
 (setq smudge-transport 'connect)
 (remove-hook 'kill-emacs-hook #'recentf-cleanup)
@@ -1117,6 +1123,8 @@ converted to PDF at the same location."
 ;; (add-hook! 'markdown-mode-hook (display-line-numbers-mode -1))
 (after! agda-input
   (add-hook! 'org-mode-hook (set-input-method "Agda"))
+  ;; (add-hook! 'latex-mode-hook (set-input-method "Agda"))
+  ;; (add-hook! 'LaTeX-mode-hook (set-input-method "Agda"))
   (add-hook! 'agda-mode-hook (set-input-method "Agda"))
   )
 
@@ -1149,6 +1157,12 @@ converted to PDF at the same location."
 ;;;; Python
 (setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args "--simple-prompt --pprint")
+
+
+(setq +python-ipython-repl-args '("-i" "--simple-prompt" "--theme=pride"))
+(setq +python-ipython-command '("ipython" "-i" "--simple-prompt" "--theme=pride"))
+
+
 ;; (setq python-shell-interpreter "ptpython"
 ;;       python-shell-interpreter-args "--dark-bg")
                                         ; (setq helm-swoop-pre-input-function (lambda () ""))
@@ -1323,6 +1337,7 @@ converted to PDF at the same location."
   :desc "Play a Little Rituals Game" "R" #'little-ritual
   :desc "Create Todo Item" "t" #'vi/insert-todo
   :desc "Open Todo File" "T" #'vi/open-todo-file
+  :desc "I, Python" "p" #'+python/open-ipython-repl
   )
  (:prefix ("r" . "Denote")
   :desc "New Note" "n" #'denote-open-or-create

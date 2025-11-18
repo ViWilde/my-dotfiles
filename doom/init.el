@@ -36,7 +36,7 @@
        ;;hydra
        indent-guides     ; highlighted indent columns
        ligatures         ; ligatures and symbols to make your code pretty again
-       ;; minimap           ; show a map of the code on the side
+       minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
        ;;nav-flash         ; blink cursor line after big motions
        neotree           ; a project drawer, like NERDTree for vim
@@ -55,7 +55,7 @@
        :editor
        (evil +everywhere) ;; come to the dark side, we have cookies
        ;; file-templates    ; auto-snippets for empty files
-       ;; fold              ; (nigh) universal code folding
+       fold              ; (nigh) universal code folding
        format  ; automated prettiness
        ;; god               ; run Emacs commands without modifier keys
        lispy             ; vim for lisp, for people who don't like vim
@@ -67,7 +67,6 @@
        word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       ;; biblio
        (dired +ranger +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        (ibuffer +icons)      ; interactive buffer management
@@ -88,11 +87,12 @@
 
        :tools
        ;; ansible
+       biblio
        (debugger +lsp)          ; FIXME stepping through code, to help you add bugs
        ;; direnv
        ;; docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
-       ;; ein               ; tame Jupyter notebooks with emacs
+       ein               ; tame Jupyter notebooks with emacs
        eval     ; run code, run (also, repls)
        ;; gist              ; interacting with github gists
        (lookup +dictionary +offline +docsets)              ; navigate your code and its documentation
@@ -146,7 +146,7 @@
        ;;(julia +lsp)             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        (latex +fold +lsp +cdlatex)             ; writing papers in Emacs has never been so fun
-       ;;lean              ; for folks with too much to prove
+       lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
        (lua +lsp +tree-sitter +fennel +moonscript)               ; one-based indices? one-based indices
        (markdown +tree-sitter +lsp)          ; writing docs for people to ignore

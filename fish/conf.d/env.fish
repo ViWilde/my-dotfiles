@@ -24,6 +24,7 @@ if status is-interactive
     export PATH="$HOME/.yarn/bin:$PATH"
     export PATH="$HOME/drive/work/langs/roc/roc-nightly:$PATH"
     export PATH="$HOME/.opam/default/bin:$PATH"
+    export PATH="$HOME/.tmuxifier/bin:$PATH"
 
     export WINEARCH="win64"
     export WINEPATH="/usr/bin"

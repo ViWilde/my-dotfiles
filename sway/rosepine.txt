@@ -1,0 +1,28 @@
+
+# Rose Pine
+# set primary Rosé Pine Moon colorscheme colors
+set $base           #232136
+set $base_trans     #232136a0
+set $surface        #2a273f
+set $overlay        #393552
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ea9a97
+set $pine           #3e8fb0
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #2a283e
+set $highlightmed   #44415a
+set $highlighthigh  #56526e
+
+# Teming border and Windows --------------
+# target                 title     bg           text   indicator  border
+client.focused           $rose     $base_trans $text  $rose      $rose
+client.focused_inactive  $text     $base_trans $text  $subtle    $surface
+client.unfocused         $text     $base_trans $text  $overlay   $overlay
+client.urgent            $text     $base_trans $text  $love      $love
+client.placeholder       $base_trans    $base_trans $text  $overlay   $overlay
+client.background        $base_trans

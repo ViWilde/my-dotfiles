@@ -9,32 +9,37 @@
      "height": 5,
 
     "modules-left": [
-        "custom/launcher",
         "sway/workspaces",
         "sway/mode",
+        "custom/waybar-mpris",
     ],
  
     "modules-center": [
-        "custom/waybar-mpris",
-        "clock",
-        "idle_inhibitor",
     ],
 
     "modules-right": [
-        "network",
-        "memory",
-        "cpu",
-        "bluetooth",
-        "pulseaudio",
-        // "custom/keyboard-layout",
-        "battery",
-        // "custom/PBPbattery",
-        "backlight#icon",
-        "backlight#value",
-        "tray",
+        "clock",
         "custom/weather",
-        "custom/power",
+        "battery",
+        "backlight",
+        "network",
+        "pulseaudio",
+        "idle_inhibitor",
+        "tray",
     ],
+
+
+    // Discards
+        // "custom/launcher",
+        // "custom/weather",
+        // "custom/power",
+        // "memory",
+        // "cpu",
+        // "bluetooth",
+        // "custom/keyboard-layout",
+        // "custom/PBPbattery",
+        // "backlight#icon",
+        // "backlight#value",
 
     // Modules
 
@@ -105,7 +110,8 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": "  {essid} ({bandwidthDownBits})", // Icon: wifi
+        "format-wifi": "  {essid}", // Icon: wifi
+        // "format-wifi": "  {essid} ({bandwidthDownBits})", // Icon: wifi
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         // "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
@@ -148,8 +154,9 @@
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": "婢 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        // "format-source": "{volume}% ",
         "format-icons": {
             "headphone": "",
             "hands-free": "וֹ",
@@ -167,7 +174,7 @@
     // to use the weather module replace <your_location> with your city or town
     // note: do not use spaces: new york would be newyork
     "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh <your_location>", 
+        "exec": "~/.config/waybar/scripts/weather.sh princeton", 
         "return-type": "json",
         "interval": 600,
     },
@@ -184,8 +191,9 @@
         "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
 
-    "backlight#value" :{
-         "format": "{percent}%",
+    "backlight" :{
+         "format": "{icon} {percent}%",
+        "format-icons": [""],
          "on-scroll-down": "brightnessctl -c backlight set 1%-",
          "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
@@ -225,17 +233,30 @@
                        "tooltip": false,
 },
 "custom/waybar-mpris": {
+    "max-length":64,
+    "album-len":0,
+    "title-len":48,
+    "dynamic-len":64,
     "return-type": "json",
-    "exec": "waybar-mpris --position --autofocus --order 'SYMBOL' --pause '⏸️'  ",
+    "exec": "waybar-mpris --autofocus --order 'SYMBOL:TITLE:ARTIST' --position",
+    "dynamic-order": ["title","artist"],
     "on-click": "waybar-mpris --send toggle",
     // This option will switch between players on right click.
         "on-click-right": "waybar-mpris --send player-next",
+},
+}
+
+ // --order 'SYMBOL' 
+// --format {player} ({status}) {dynamic}  
     // The options below will switch the selected player on scroll
         // "on-scroll-up": "waybar-mpris --send player-next",
         // "on-scroll-down": "waybar-mpris --send player-prev",
     // The options below will go to next/previous track on scroll
         // "on-scroll-up": "waybar-mpris --send next",
         // "on-scroll-down": "waybar-mpris --send prev",
-    "escape": true,
-},
-}
+    // "escape": true,
+ // --autofocus --pause '⏸'
+
+    // "format": "{status_icon} {title} {artist}",
+    // "format-paused": "{status_icon} {title} {artist}",
+    // "format-playing": "{status_icon} {title} {artist}",

@@ -63,6 +63,12 @@
 (package! esxml)
 ;; (package! djvu)
 
+(package! zotero)
+(package! zotxt)
+
+
+;;; 516
+(package! boogie-friends)
 
 ;;;; Lisp/Scheme
 ;;(package! geiser-guile)

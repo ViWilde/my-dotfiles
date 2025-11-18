@@ -40,8 +40,8 @@ exec_always "export XDG_CURRENT_DESKTOP=i3wm"
 # exec_always 'gsettings set org.gnome.desktop.interface icon-theme "Fantasma-GTK"'
 # exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Midnight-Green"'
 # exec_always 'gsettings set org.gnome.desktop.interface icon-theme "Midnight-Green"'
-exec_always 'gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Lavender'
-exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Dracula"'
+exec_always 'gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Mauve'
+exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "rose-pine-moon-gtk"'
 exec_always 'export GTK_THEME=Dracula'
 
 exec_always 'gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"'
@@ -251,15 +251,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Write"
-set $ws2 "2:RPG"
-set $ws3 "3:PL"
-set $ws4 "4:Theory"
-set $ws5 "5:RPG2"
-set $ws6 "6:RPG3"
-set $ws7 "7:Tinker"
+set $ws1 "1:Matrices"
+set $ws2 "2:Research"
+set $ws3 "3:516"
+set $ws4 "4:518"
+set $ws5 "5:585"
+set $ws6 "6:RPG"
+set $ws7 "7:Write"
 set $ws8 "8:PDFs"
-set $ws9 "9:???"
+set $ws9 "9:Tinker"
 set $ws10 "10:???"
 
 # switch to workspace
@@ -501,32 +501,32 @@ for_window [class="Chromium"] inhibit_idle fullscreen
 # client.focused          #9fcc2e #9fcc2e #F8F8F2 #9fcc2e   #9fcc2e
 
 
-set $rosewater #f5e0dc
-set $flamingo #f2cdcd
-set $pink #f5c2e7
-set $mauve #cba6f7
-set $red #f38ba8
-set $maroon #eba0ac
-set $peach #fab387
-set $yellow #f9e2af
-set $green #a6e3a1
-set $teal #94e2d5
-set $sky #89dceb
-set $sapphire #74c7ec
-set $blue #89b4fa
-set $lavender #b4befe
-set $text #cdd6f4
-set $subtext1 #bac2de
-set $subtext0 #a6adc8
-set $overlay2 #9399b2
-set $overlay1 #7f849c
-set $overlay0 #6c7086
-set $surface2 #585b70
-set $surface1 #45475a
-set $surface0 #313244
-set $base #1e1e2e
-set $mantle #181825
-set $crust #11111b
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
 # target                 title     bg    text   indicator  border
 client.focused           $lavender $base $text  $rosewater $lavender
@@ -578,22 +578,28 @@ bar {
 
 # KDE config
 # Plasma compatibility improvements
-# for_window [window_role="pop-up"] floating enable
-# for_window [window_role="task_dialog"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 
-# for_window [class="yakuake"] floating enable
-# for_window [class="systemsettings"] floating enable
-# for_window [class="plasmashell"] floating enable;
-# for_window [class="Plasma"] floating enable; border none
-# for_window [title="plasma-desktop"] floating enable; border none
-# for_window [title="win7"] floating enable; border none
-# for_window [class="krunner"] floating enable; border none; move position center
-# for_window [class="Kmix"] floating enable; border none
-# for_window [class="Klipper"] floating enable; border none
-# for_window [class="Plasmoidviewer"] floating enable; border none
-# for_window [class="(?i)*nextcloud*"] floating disable
-# for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-# no_focus [class="plasmashell" window_type="notification"]
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none; move position center
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+
+for_window [title="Desktop @ QRect.*"] kill, floating enable, border none
+
+
+
+
 for_window [title="Extension: (Quick Commands) - Quick Commands — Mozilla Firefox"] floating enable
 for_window [class="Kupfer.py"] floating enable
 for_window [class="Kupfer.py"] move position center

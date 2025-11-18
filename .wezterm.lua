@@ -12,7 +12,8 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 -- config.color_scheme = 'rose-pine'
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = 'Catppuccin Macchiato'
+config.enable_wayland=true
 -- config.color_scheme = 'nord'
 -- Possible themes:
 -- Butrin
@@ -53,7 +54,10 @@ config.keys = {
   {key = '+', mods=default_mod, action=act.IncreaseFontSize},
   {key = '-', mods=default_mod, action=act.DecreaseFontSize},
   {key = '=', mods=default_mod, action=act.ResetFontSize},
+  { key = "F11", mods = "NONE", action = act.ToggleFullScreen },
+
 }
+
 
 config.use_fancy_tab_bar = true
 config.window_frame = {
@@ -82,6 +86,8 @@ config.key_tables = {
       { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'NextMatch' },
     },
   }
+
+config.adjust_window_size_when_changing_font_size = false
 
 
 -- config.colors = {

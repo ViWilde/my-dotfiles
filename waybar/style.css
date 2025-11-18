@@ -1,32 +1,7 @@
-@import "./rose-pine-moon.css";
+@import "macchiato.css";
 
-@keyframes blink-warning {
-    70% {
-        color: @text;
-    }
 
-    to {
-        color: @text;
-        background-color: @gold;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-        color: @text;
-    }
-
-    to {
-        color: @text;
-        background-color: @love;
-    }
-}
-
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
-
-/* Reset all styles */
+/* General */
 * {
     border: none;
  	border-radius: 26px;
@@ -36,173 +11,140 @@
     padding: 0;
 }
 
-/* The whole bar */
+* {
+  font-family: FantasqueSansMono Nerd Font;
+  font-size: 17px;
+  min-height: 0;
+}
+
 #waybar {
-    background: transparent;
-    color: @text;
-    /* background-color: @base1; */
-    background-color:  alpha(@base, 0.6);
-    font-family: RobotoMono;
-    font-size: 16px;
+  background: transparent;
+  color: @text;
+  margin: 5px 5px;
 }
 
-/* Every modules */
-#battery,
-#clock,
-#backlight,
-#cpu,
-#custom-keyboard-layout,
-#memory,
+/* Workspaces */
+#workspaces {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @pink;
+  border-radius: 1rem;
+  /* padding: 0.4rem; */
+}
+#workspaces button.focused {
+  color: @sapphire;
+}
+
+/* #workspaces button.active { */
+/*   color: @lavender; */
+/*   border-radius: 1rem; */
+/* } */
+
+#workspaces button:hover {
+  color: @lavender;
+}
+
+/* TODO mode*/
+
+/* All */
+
 #mode,
-#custom-weather,
-#network,
-#pulseaudio,
-#temperature,
+#custom-waybar-mpris,
 #tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-power,
+#network,
 #idle_inhibitor,
-#custom-PBPbattery {
-    padding:0.6rem 1.5rem;
-    margin: 1px 0px;
+#custom-weather
+{
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
 }
 
-/* -----------------------------------------------------------------------------
- * Modules styles
- * -------------------------------------------------------------------------- */
+
+
+/* Center */
+#custom-waybar-mpris{
+  color: @teal;
+  border-radius: 1rem ;
+  margin-left: 10rem;
+
+}
+
+
+/* Right */
+
+#clock {
+  color: @mauve;
+  border-radius: 1rem 0px 0px 1rem;
+}
+
+#custom-weather {
+    color: @sky;
+  border-radius: 0;
+  background-color: @surface0;
+    
+}
+
 
 #battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @green;
 }
 
-#battery {
-    color: @foam;
-    border-radius: 5px 0px 0px 5px;
-
-}
-
-#battery.discharging {
-    color: @text;
+#battery.charging {
+  color: @green;
 }
 
 #battery.warning:not(.charging) {
-    color: @gold;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @red;
 }
 
-#battery.critical:not(.charging) {
-    background-color: @love;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+#battery {
+  border-radius: 0;
+}
+
+#backlight{
+  color: @yellow;
+  border-radius: 0;
+  
 }
 
 
-
-
-
-#cpu.warning {
-    color: @gold;
+#network {
+  border-radius: 0;
+  color: @peach;
+  background-color: @surface0;
 }
 
-#cpu.critical {
-    color: @love;
-}
-
-#memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#memory.warning {
-    color: @gold;
- }
-
-#memory.critical {
-    color: @love;
-    animation-name: blink-critical;
-    animation-duration: 2s;
-    padding-left:5px;
-    padding-right:5px;
-}
-
-#mode {
-    background: @iris;
-    border-bottom: 3px transparent;
-    color:@text;
-    margin-left: 5px;
-    padding: 7px;
-}
-
-#network.disconnected {
-    color: @gold;
-}
 
 #pulseaudio {
-    padding-top:6px;
-}
-
-#pulseaudio.muted {
-    color: @iris;
-}
-
-#temperature.critical {
-    color: @love;
-}
-
-#window {
-    font-weight: bold;
-}
-
-#workspaces {
-    font-size:13px;
+  color: @maroon;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 5rem;
 }
 
 
-#clock {
-font-weight: bold;
-font-size: 16px;
 
+
+
+#idle_inhibitor{
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
 }
 
 
-#workspaces button {
-    border-bottom: 3px solid transparent;
-    margin-bottom: 0px;
-    padding:0px;
-}
 
-#workspaces button.focused {
-    border-bottom: 3px solid  @iris;
-    margin-bottom: 1px;
-    padding-left:0;
-}
-
-#workspaces button.urgent {
-    border-color: @love;
-    color: @love;
-}
-
-#custom-power {
-    margin-left:15px;
-    margin-right:15px;
-    font-size:15px;
-}
-
-#custom-launcher {
-    font-size:15px;
-    margin-left:15px;
-    margin-right:10px;
-}
-
-#backlight.icon {
-    padding-right:1px;
-    font-size: 13px;
+#tray {
+  margin-right: 1rem;
+  /* border-radius: 1rem; */
+  border-radius: 0px 1rem 1rem 0px;
 }

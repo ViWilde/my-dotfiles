@@ -24,3 +24,4 @@
   monitor_log_frequency = "5"
   monitor_fullscan_frequency = "12"
   sync_root_files = "false"
+  disable_notifications = "true"
