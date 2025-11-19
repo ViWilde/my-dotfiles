@@ -107,6 +107,8 @@
 (package! rainbow-mode)
 (package! yasnippet-snippets)
 
+(package! kdl-mode)
+
 ;;; OPLSS
 ;; (package! proof-general)
 ;;; Language Support

@@ -5,12 +5,15 @@
     "bar_id": "bar-0",
     "ipc":true,
 
+
+        //"sway/workspaces",
+        //"sway/mode",
     // If height property would be not present, it'd be calculated dynamically
      "height": 5,
 
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
+        "niri/workspaces",
+        "niri/window",
         "custom/waybar-mpris",
     ],
  
@@ -147,6 +150,14 @@
         //     "4": "",
         // }
     },
+
+    "niri/worspaces":{
+        "format":"{value}",},
+
+    "niri/window":{
+    "icon":true,
+    "format":"",
+},
 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float

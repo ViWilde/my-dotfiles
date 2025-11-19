@@ -82,6 +82,7 @@ exec "emacs --name=emacs-scratchpad"
 
 
 
+
 input * {
       xkb_options parens:swap_brackets
 }
@@ -116,8 +117,8 @@ for_window [app_id="vivaldi-stable"] border pixel 2
 
 # border pixel 5
 gaps inner 4
-gaps outer 5
-smart_borders on
+gaps outer 1
+# smart_borders on
 smart_gaps on
 
 # # class                 border  bground text    indicator child_border
@@ -145,7 +146,7 @@ for_window [all] title_window_icon on
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- swaylock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -441,10 +442,10 @@ for_window [floating] border pixel 0
 
 # From default sway
 exec swayidle -w\
-    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
+    timeout 1070 'swaylock-vi'\
     timeout 770 'swaymsg "output * power off"' \
     resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -C ~/.config/swaylock/config'
+    before-sleep 'swaylock-vi'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -553,7 +554,7 @@ bar {
     mode hide
     modifier Mod4
 	font pango:RobotoSlab, FontAwesome5Free, FontAwesome5Brands, SymbolsNerdFont 10
-    height 50
+    height 
     tray_padding 10px
     separator_symbol ""
 
@@ -613,3 +614,7 @@ for_window [class="Kupfer.py"] move position center
 # bindsym XF86AudioLowerVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume"
 # bindsym XF86AudioMute exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mute"
 # bindsym XF86AudioMicMute exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mic_mute"
+# exec /usr/bin/cosmic-ext-alternative-startup
+# exec /usr/bin/cosmic-ext-sway-daemon
+
+# exec "qs -c noctalia-shell"
