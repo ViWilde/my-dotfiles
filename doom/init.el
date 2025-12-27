@@ -45,7 +45,7 @@
        ;; tabs              ; a tab bar for Emacs
        (treemacs +lsp)          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
+       ;; vc-gutter         ; vcs diff in the fringe
        ;; vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        ;; (window-select +switch-window)     ; visually switch windows
        ;; window-select     ; visually switch windows
@@ -152,6 +152,7 @@
        (markdown +tree-sitter +lsp)          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;; nix               ; I hereby declare "nix geht mehr!"
+       ;; (ocaml +lsp +tree-sitter)             ; an objective camel
        (ocaml +lsp +tree-sitter)             ; an objective camel
        (org +jupyter +pandoc +roam2 +noter +reference +journal +present +brain +gnuplot)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother

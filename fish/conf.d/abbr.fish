@@ -53,7 +53,7 @@ if status is-interactive
     abbr -a cat bat
     abbr -a b bat
     abbr -a diff batdiff
-    abbr -a bg batgrep
+    abbr -a bgr batgrep
     abbr -a cd z
 
     #Spotify
@@ -92,6 +92,8 @@ if status is-interactive
     abbr -a drac "env GTK_THEME=Dracula"
     abbr -a pav "env GTK_THEME=Dracula pavucontrol"
     abbr -a lol "env GTK_THEME=Dracula lolly"
+
+    abbr -a fo "fortune -e"
 
     # CS164
     abbr -a typecheck 'cd ~/d/cs/164/projects/pa2-chocopy-semantic-analysis-travelling-circus-1 && java -cp "chocopy-ref.jar:target/assignment.jar" chocopy.ChocoPy --pass=rr src/test/data/pa2/student_contributed/'

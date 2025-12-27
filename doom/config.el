@@ -43,10 +43,13 @@
 (setq! doom-rose-pine-moon-brighter-modeline nil)
 ;; (setq! doom-rose-pine-brighter-text t)
 ;; (setq! doom-rose-pine-brighter-comments t)
-(setq doom-font (font-spec :family "iMWritingDuo Nerd Font" :size 16))
+(setq doom-font (font-spec :family "iMWritingMono Nerd Font" :size 16))
+;; (setq doom-font (font-spec :family "fira code" :size 17))
                                         ; (setq doom-variable-pitch-font (font-spec :family "FairydustB" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "Liberation Serif" :size 15))
-(setq! doom-variable-pitch-font (font-spec :family "Bona Nova" :size 15))
+;; (setq! doom-variable-pitch-font (font-spec :family "Bona Nova" :size 15))
+(setq! doom-variable-pitch-font (font-spec :family "Noto Serif" :size 17))
+;; (setq! doom-variable-pitch-font (font-spec :family "Comfortaa" :size 15))
 ;;; Transparency
 (set-frame-parameter nil 'alpha-background 0.98)
 (add-to-list 'default-frame-alist '(alpha-background . 0.98))
@@ -402,14 +405,14 @@ ARG has the same meaning as for `kill-sexp'."
          (lines (s-split "\n" (f-read "/home/vivien/Music/database.txt")))
          (options (append lyric-history lines))
          (choice (completing-read "Search for Lyrics: " options (lambda (v) v) nil "" 'lyric-history))
-         (response (shell-command-to-string (concat "clyrics "  "\"" choice "\""))))
+         (response (shell-command-to-string (concat "lyrics "  "\"" choice "\""))))
 
     (output-to-screen "*cylrics*" response)))
 
 (defun spotify-lyrics ()
   (interactive)
   ;; (output-to-screen "*clyrics*" (shell-command-to-string "playerctl -p spotify -f '{{artist}}: {{title}}' metadata| tee  >(xargs -0 clyrics)"))
-  (output-to-screen "*clyrics*" (shell-command-to-string ""))
+  (output-to-screen "*clyrics*" (shell-command-to-string "spotlyrics"))
 
   )
 
@@ -889,7 +892,7 @@ converted to PDF at the same location."
   (set-company-backend! 'org-mode '(:separate company-dabbrev company-ispell))
 
   (add-hook 'org-mode-hook #'org-fold-hide-drawer-all)
-  (add-hook! 'org-mode-hook (diff-hl-mode -1))
+  ;; (add-hook! 'org-mode-hook (diff-hl-mode -1))
   (add-hook! 'org-mode-hook (smartparens-strict-mode -1))
   (setq org-pretty-entities nil)
 
@@ -1110,7 +1113,10 @@ converted to PDF at the same location."
 ;; (add-hook! pdf-tools-enabled-hook #'hide-mode-line-mode)
 
 ;;;; Prose
+(setq! +zen-mixed-pitch-modes nil)
+;; Orig val: (adoc-mode rst-mode markdown-mode org-mode) ;; 
 (add-hook 'org-mode-hook #'+zen/toggle)
+
 (add-hook 'text-mode-hook #'auto-save-visited-mode)
 (add-hook 'text-mode-hook #'visual-line-mode)
 (add-hook 'text-mode-hook #'hl-todo-mode)
@@ -1127,6 +1133,7 @@ converted to PDF at the same location."
   ;; (add-hook! 'LaTeX-mode-hook (set-input-method "Agda"))
   (add-hook! 'agda-mode-hook (set-input-method "Agda"))
   )
+
 
 ;;;; Programming
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -1210,14 +1217,10 @@ converted to PDF at the same location."
 ;;   (setq-local face-remapping-alist '((default (:height 0)))))
 
 
-(after! lsp
-  ;; (setq lsp-elixir-ls-server-dir "/usr/lib/elixir-ls"
-  ;;       lsp-elixir-local-server-command "/usr/lib/elixir-ls/language_server.sh")
-
-  (custom-set-faces!
-    '(lsp-details-face :inherit shadow :foreground "#908caa" :background "#2b2d41" :height 0.8))
-
-  )
+;; (after! lsp
+;;   ;; (setq lsp-elixir-ls-server-dir "/usr/lib/elixir-ls"
+;;   ;;       lsp-elixir-local-server-command "/usr/lib/elixir-ls/language_server.sh")
+;;   (custom-set-faces! '(lsp-details-face :inherit shadow :foreground "#908caa" :background "#2b2d41" :height 0.8)))
 (after! treemacs
   (setq! treemacs-show-cursor t))
 

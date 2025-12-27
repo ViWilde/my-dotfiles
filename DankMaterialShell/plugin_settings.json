@@ -1,0 +1,44 @@
+{
+  "dankActions": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "displayMirror": {
+    "enabled": true
+  },
+  "niriWindows": {
+    "enabled": true,
+    "noTrigger": false,
+    "trigger": "!"
+  },
+  "dankDesktopWeather": {
+    "enabled": true
+  },
+  "commandRunner": {
+    "enabled": true,
+    "history": [
+      "ls"
+    ],
+    "terminal": "ghostty"
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": [
+      {
+        "id": "startpage",
+        "name": "Startpage",
+        "icon": "unicode:🔍",
+        "url": "https://www.startpage.com/do/search?q=%s&segment=startpage.vivaldi",
+        "keywords": [
+          "s",
+          "?"
+        ]
+      }
+    ],
+    "noTrigger": false,
+    "trigger": "?",
+    "defaultEngine": "duckduckgo"
+  }
+}

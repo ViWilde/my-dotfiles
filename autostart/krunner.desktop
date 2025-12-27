@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Krunner
-Comment=Run things
-GenericName=Krunner
-Exec=/usr/bin/krunner --daemon
-Icon=krunner
-Type=Application
-StartupNotify=true
-StartupWMClass=Krunner

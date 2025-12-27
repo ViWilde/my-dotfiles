@@ -1,0 +1,21 @@
+# Niri Session Manager Configuration
+
+# Apps that should only have one instance
+[single_instance_apps] 
+apps = [
+    "vivaldi-stable",
+    "emacs"
+]
+
+# Applications to skip during startup
+[skip_apps]
+apps = [
+    "discord",
+    "slack"
+]
+
+#Application remapping
+[app_mappings]
+"emacs" = ["emacsclient","-nc"]
+"com.mitchellh.ghostty" = ["ghostty"]
+"org.wezfurlong.wezterm" = ["wezterm"]

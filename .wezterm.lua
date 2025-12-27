@@ -24,7 +24,7 @@ config.enable_wayland=true
 -- fairy floss dark
 -- gotham
 -- config.default_prog = {'/usr/bin/zellij'}
-config.default_prog = {'/usr/bin/fish'}
+config.default_prog = {'/usr/bin/zsh'}
 -- config.default_prog = {'/usr/bin/xonsh'}
 -- config.set_environment_variables = {COLORTERM="truecolor", TERM="xterm-24bit"}
 -- config.window_background_image = '/home/vivien/backgrounds/tma-tape.jpeg'

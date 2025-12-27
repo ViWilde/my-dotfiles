@@ -9,7 +9,7 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	excludesFile = /home/rohan/dotfiles/.gitignore
+	excludesFile = /home/vivien/dotfiles/.gitignore
 	pager = delta
 [push]
 	default = simple

@@ -8,40 +8,85 @@
 // https://yalter.github.io/niri/Configuration:-Input
 
 workspace "ndrop"
+// workspace "research"
+// workspace "516"
+// workspace "518"
+// workspace "rec"
 spawn-at-startup "niri" "msg" "action" "focus-workspace-down"
+spawn-at-startup "/home/vivien/bin/reopen-pdfs"
 
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Mauve"
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-key-theme 'Emacs'"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Dracula"
 spawn-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 
-spawn-sh-at-startup "sh -c ~/bin/autosuspend"
-spawn-sh-at-startup "sh -c libinput-gestures"
-spawn-sh-at-startup "sh -c 'synapse -s &'"
-spawn-sh-at-startup "sh -c playerctld"
+// spawn-at-startup "libinput-gestures"
+spawn-at-startup "playerctld"
 
-spawn-sh-at-startup "sh -c waybar"
-spawn-sh-at-startup "sh -c 'swaybg -i ~/Pictures/backgrounds/flondon/welcome.jpeg -m fill'"
-spawn-sh-at-startup "sh -c /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-sh-at-startup "sh -c mako"
-spawn-sh-at-startup "sh -c 'nm-applet --indicator' "
-// spawn-sh-at-startup "xrandr --output HDMI-A-1 --primary"
-// spawn-at-startup "niri-switch-daemon"
+spawn-sh-at-startup "sh -c 'swaybg -i ~/Pictures/backgrounds/flondon/welcome-textless.jpeg -m fill'"
+// spawn-sh-at-startup "kitten panel --edge=background cava"
 
-// exec "systemctl start bluetooth"
-// exec "systemctl start --user emacs"
-// exec "systemctl start --user cronie"
-// exec "systemctl start --user spotify-listener"
-// exec "systemctl start --user onedrive"
-// exec "systemctl start --user mopidy"
-// exec "systemctl start --user 5e-api"
-// exec "systemctl start --user syncthing"
-// TODO
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+// spawn-sh-at-startup "mako"
+
+// spawn-sh-at-startup "nm-applet --indicator"
+
+spawn-sh-at-startup "/home/vivien/.cargo/bin/nsticky"
+
+spawn-sh-at-startup "niri-session-manager"
+
+spawn-sh-at-startup "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK" // Why do we even have this?
+
+spawn-sh-at-startup "systemctl start --user onedrive" // Why do we even have this?
+// spawn-sh-at-startup "python ~/.config/rclone/proton_rclone_2fa.py"
+
+// spawn-sh-at-startup "stasis" // TODO play with this
 
 
 
+environment {
+    WLR_NO_HARDWARE_CURSORS "1"
+    // WLR_RENDERER_ALLOW_SOFTWARE "1"
+    MOZ_ENABLE_WAYLAND "1"
 
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    
+
+    QT_QPA_PLATFORM "wayland"
+    // QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_STYLE_OVERRIDE "kvantum"
+
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+
+
+    TERMINAL "ghostty"
+    BROWSER "/usr/bin/vivaldi"
+    EDITOR "~/bin/eclient"
+    SUDO_EDITOR "emacsclient -c"
+    VISUAL "~/bin/eclient"
+
+    // GTK_USE_PORTAL "0"
+
+    GTK_THEME "catppuccin-macchiato-teal-standard+default"
+
+    
+    
+    
+}
+
+gestures {
+    hot-corners {
+        // off
+        top-left
+        // top-right
+        // bottom-left
+        // bottom-right
+    }
+}
 input {
     keyboard {
         xkb {
@@ -103,7 +148,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="25%"
+    focus-follows-mouse max-scroll-amount="50%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -186,7 +231,7 @@ layout {
     // You can change the default width of the new windows.
     // default-column-width { proportion 1.0; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
-    default-column-width {}
+    default-column-width {proportion 1.0;}
 
     // By default focus ring and border are rendered as a solid background rectangle
     // behind windows. That is, they will show up through semitransparent windows.
@@ -202,10 +247,10 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        off
+        // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 3
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -213,7 +258,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#8bd5ca"
+        // active-color "#8bd5ca"
 
         // Color of the ring on inactive monitors.
         //
@@ -228,7 +273,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+        active-gradient from="#8bd5ca" to="#c6a0f6" angle=45 relative-to="workspace-view" 
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -241,7 +286,7 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        // off
+        off
 
         width 2
         active-color "#8bd5ca"
@@ -306,43 +351,140 @@ layout {
 		top 5
 		bottom 5
     }
+
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        width 8
+        gap 3
+        length total-proportion=0.9
+        position "left"
+        corner-radius 10
+        active-gradient from="#8bd5ca" to="#c6a0f6" angle=45
+    }
+
+    insert-hint {
+        off
+    }
+
 }
+
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#8bd5caff"
+        urgent-color "#ee99a0ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 1000
+        max-scale 0.8
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
+
 
 window-rule {
     // Match Firefox windows with Gmail in title.
     match app-id=".*"
-    opacity 0.8
+    opacity 0.9
+    draw-border-with-background false
+    open-maximized-to-edges true
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+
+
+
+
+window-rule {
+    match title="Picture in picture"
+    open-floating true
+    open-maximized-to-edges false
+    opacity 1.0
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+}
+
+window-rule {
+    match app-id="ghostty"
+    // opacity 0.5
     draw-border-with-background false
 }
 
 window-rule {
-    match app-id="vivaldi-stable"
-    opacity 0.9
-    
+    match app-id="Ulauncher|ulauncher|albert|synapse|Kupfer.py"
+    open-floating true
+    open-maximized-to-edges false
+    opacity 0.8
+    border  {
+        off
+    }
+    focus-ring {
+        off
+}
+    shadow {
+        off
+        
+}
 }
 
+
+
 window-rule {
-    match app-id="wezterm"
-    open-floating true
+    match app-id="ghostty"
+    // open-floating true
 }
 
 
 window-rule {
     match app-id="tidal-hifi"
+    open-maximized-to-edges false
     open-floating true
 }
 
+
 window-rule {
     match app-id="emacs-scratchpad"
+    open-maximized-to-edges false
     open-floating true
     
 }
 
 
 layer-rule {
+    // DMS wallpaper, for the backdrop for overview, etc.
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+
+
+layer-rule {
     match namespace="waybar"
     match at-startup=true
-    // baba-is-float true
+    place-within-backdrop true
+    opacity 1.0
+
     shadow {
         // on
         off
@@ -355,9 +497,32 @@ layer-rule {
 }
 
 layer-rule {
+    // Swaybg wallpaper for windows
     match namespace="wallpaper"
     match at-startup=true
-    place-within-backdrop true
+    place-within-backdrop false
+}
+
+layer-rule {
+    match namespace="kitty-panel"
+    match at-startup=true
+    // place-within-backdrop true
+    
+}
+
+layer-rule {
+    match namespace="gtk-layer-shell"
+    opacity 0.7
+
+    shadow {
+        // on
+        off
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+}
+    
 }
 
 
@@ -403,21 +568,12 @@ animations {
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
-window-rule {
+/-window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
 }
 
 // Example: block out two password managers from screen capture.
@@ -432,12 +588,6 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 10
-    clip-to-geometry true
-}
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -455,23 +605,65 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return {spawn "wezterm ";}
-    Mod+V {spawn "vivaldi";}
-    Mod+E {spawn-sh "emacsclient -nc --eval '(doom/switch-to-scratch-buffer)'";}
+    Mod+Shift+Return hotkey-overlay-title="Terminal" {spawn "ghostty";}
+    Mod+V hotkey-overlay-title="Vivaldi" {spawn "vivaldi";}
+    Mod+E hotkey-overlay-title="Emacs" {spawn-sh "emacsclient -nc --eval '(doom/switch-to-scratch-buffer)'";}
     Mod+Shift+E {spawn-sh "emacsclient -nc --eval '(deft-new-file)'" ;}
     Mod+X {spawn "emacsclient -nc --eval '(progn (doom/switch-to-scratch-buffer) (consult-buffer))'";}
-    Mod+Shift+n {spawn "nemo";}
-    Mod+Ctrl+Shift+D {spawn-sh "synapse-s";}
-    Mod+Shift+T {spawn "~/bin/create-todo";}
-    Alt+Shift+Space {spawn "albert toggle";}
-    Mod+Shift+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+D hotkey-overlay-title="Launcher" { spawn "kupfer"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+n {spawn "nemo";}
+    // Mod+Shift+T {spawn "~/bin/create-todo";}
+    // Alt+Shift+Space {spawn "albert toggle";}
+    // Mod+Shift+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    // Mod+D hotkey-overlay-title="Launcher" { spawn-sh "echo -n '[\"toggle\"]' | socat - ~/.cache/albert/ipc_socket";}
+
+    // Launchers
+    // Mod+D hotkey-overlay-title="Launcher" { spawn "kupfer"; }
+    // Mod+D hotkey-overlay-title="Launcher" { spawn "ulauncher-toggle"; }
+    // Mod+0 { spawn "ulauncher-toggle";}
+
+    // Mod+Shift+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggle"; }
+    // Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "gapplication launch io.ulauncher.Ulauncher"; }
+    Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
+    // Mod+0 { spawn-sh "gapplication launch io.ulauncher.Ulauncher";}
+
+    // Mod+0 repeat=false {spawn "kupfer";}
+    Mod+Shift+D  {spawn "kupfer";} 
+    // Mod+Shift+D  {spawn-sh "ulauncher-toggle; wtype 'f '"  ;} // File search
+    // Alt+Tab {spawn-sh "ulauncher-toggle; wtype 'w '"  ;}
+    // Mod+Shift+D hotkey-overlay-title="Launcher" { spawn "kupfer"; }
+    Mod+Slash hotkey-overlay-title="Cosmic Launcher" {spawn-sh "cosmic-launcher";}
+    // Missing: Albert, Synapse
+    // Mod+Shift+W hotkey-overlay-title="Launcher" { spawn "kupfer"; }
+    // Mod+Shift+G hotkey-overlay-title="Launcher" {spawn-sh "echo -n '[\"toggle\"]' | socat - ~/.cache/albert/ipc_socket";}
+    // Mod+Shift+D { spawn "ignis" "toggle-window" "Launcher"; }
+
+
+    Mod+F1 hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "dms ipc call lock lock"; }
 
     // Scrathcpad
-    Mod+N { spawn-sh "ndrop -c 'emacs-scratchpad' 'emacs --name=emacs-scratchpad'"; }
-    Alt+3 {spawn-sh "ndrop -c 'org.wezfurlong.wezterm' wezterm";}
-    Mod+Shift+S {spawn-sh "ndrop tidal-hifi";}
+    Mod+Shift+N { spawn-sh "ndrop -c 'emacs-scratchpad' 'emacs --name=emacs-scratchpad'"; }
+    Alt+3 {spawn-sh "ndrop -c 'com.mitchellh.ghostty' ghostty";}
+    Mod+Return {spawn-sh "ndrop -c 'comcurl 'http://localhost:43654/search?content_type=application'
+.mitchellh.ghostty' ghostty";}
+    Mod+S {spawn-sh "dms ipc call dash toggle media";}
+    Mod+Shift+S hotkey-overlay-title="Tidal" {spawn-sh "ndrop tidal-hifi";}
+
+    //Rename workspace
+    Mod+B {spawn-sh "niri msg action set-workspace-name $(zenity --entry --text='Workspace Name')";}
+    Mod+Shift+B {unset-workspace-name;}
+
+
+
+    Mod+Y {toggle-window-rule-opacity;}
+    // Mod+A { spawn-sh "pkill -USR1 waybar"; }
+    // Mod+Shift+A { spawn-sh "pkill -USR2 waybar"; }
+
+
+
+    // Mod+Escape { spawn "ignis" "toggle-window" "PowerMenu"; }
+    // Mod+G { spawn "ignis" "toggle-window" "Settings"; }
+    // Mod+Shift+A { spawn-sh "ignis toggle-window QuickCenter"; }
+
 
     
     // Mod+Alt+e { spawn "ndrop" "kitty" "--class" "kitty_2"; }
@@ -493,18 +685,24 @@ binds {
     XF86AudioNext allow-when-locked=true {spawn-sh "playerctl next";}
     XF86AudioPlay allow-when-locked=true {spawn-sh "playerctl play-pause";}
 
+
+
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "dms ipc call brightness increment 10 ''" ; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "dms ipc call brightness decrement 10 ''" ; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+O hotkey-overlay-title="Overview" repeat=false {toggle-overview;}
+    Mod+A repeat=false {toggle-overview;} 
+    Mod+0 repeat=false {toggle-overview;}
 
-    // Mod+Q repeat=false { close-window; }
     Mod+Q repeat=false { close-window; }
 
 	Mod+H { focus-column-left; }
@@ -526,6 +724,10 @@ binds {
 	Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
 	Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
 	Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    Mod+M {move-column-to-monitor-up;}
+    Mod+Shift+M {move-column-to-monitor-down;}
+    
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -632,7 +834,7 @@ binds {
     // Switches focus between the current and the previous workspace.
     Mod+Grave { focus-workspace-previous; }
     Mod+Tab {focus-workspace-down;}
-    Mod+Shift+Tab {focus-workspace-down;}
+    Mod+Shift+Tab {focus-workspace-up;}
     // Mod+Tab { spawn "niri-switch"; }
 
 
@@ -653,8 +855,10 @@ binds {
     // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+Shift+F { maximize-column; }
-    Mod+F { fullscreen-window; }
+    Mod+F { maximize-window-to-edges; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+G{ maximize-column; }
+    Mod+Shift+G {toggle-windowed-fullscreen;}
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -663,7 +867,7 @@ binds {
     Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
-    Mod+Ctrl+C { center-visible-columns; }
+    Mod+Shift+C { center-visible-columns; }
 
     // Finer width adjustments.
     // This command can also:
@@ -682,6 +886,9 @@ binds {
 
     // Move the focused window between the floating and the tiling layout.
 	Mod+Shift+Space { toggle-window-floating; }
+    Mod+Backslash {spawn-sh "/home/vivien/.cargo/bin/nsticky toggle-active";}
+    // Mod+Backslash {spawn-sh "nsticky add $(niri msg --json pick-window| jq '.id')";}
+    // Mod+Shift+Backslash {spawn-sh "nsticky remove $(niri msg --json pick-window| jq '.id')";}
 	Mod+Space { switch-focus-between-floating-and-tiling; }
 
 
@@ -689,6 +896,9 @@ binds {
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
     Mod+T { toggle-column-tabbed-display; }
+
+
+
 
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
@@ -714,10 +924,19 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     // Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete { quit; }
+    Ctrl+Alt+Delete { spawn-sh "/home/vivien/bin/niri-exit" ;} // Save open pdfs, save window layout, quit
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
 }
+
+
+
+// spawn-sh-at-startup "waybar"
+// spawn-sh-at-startup "cosmic-ext-alternative-startup"
+spawn-sh-at-startup "dms run"
+spawn-sh-at-startup "dms ipc call inhibit disable"
+
 

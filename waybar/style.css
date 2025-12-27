@@ -5,7 +5,6 @@
 * {
     border: none;
  	border-radius: 26px;
-   /* border-radius: 0; */
     min-height: 0;
     margin: 1px;
     /* padding: 0.4rem; */
@@ -13,8 +12,7 @@
 
 * {
   font-family: FantasqueSansMono Nerd Font;
-  font-size: 17px;
-  min-height: 0;
+  font-size: 14px;
 }
 
 #waybar {
@@ -25,10 +23,10 @@
 
 /* Workspaces */
 #workspaces {
-  /* border-radius: 1rem; */
-  border-radius: 1rem 0px 0px 1rem;
-  margin: 5px;
-  margin-left: 1rem;
+  border-radius: 1rem;
+  /* border-radius: 1rem 0px 0px 1rem; */
+  margin-top: 5px;
+  margin-left: 4rem;
 }
 
 #workspaces button {
@@ -39,13 +37,22 @@
   color: @sapphire;
 }
 
-/* #workspaces button.active { */
-/*   color: @lavender; */
-/*   border-radius: 1rem; */
-/* } */
+#workspaces button.urgent {
+    border-color: @red;
+    color: @green;
+}
+
+
+
 
 #workspaces button:hover {
-  color: @lavender;
+  background-color: alpha(@surface0, 0.85);
+  border-color: @lavender;
+  background: alpha(@surface0, 0.85);;
+  text-shadow: inherit;
+
+
+
 }
 
 #window{
@@ -53,6 +60,8 @@
 }
 
 /* TODO mode*/
+
+
 
 /* All */
 #workspaces,
@@ -67,20 +76,57 @@
 #network,
 #idle_inhibitor,
 #custom-weather,
-#window
+#window,
+#memory,
+#cpu,
+#custom-launcher
 {
-  background-color: alpha( @surface0, 0.75) ;
+  background-color: alpha( @surface0, 0.85) ;
   padding: 0.5rem 1rem;
-  margin: 5px 0px;
+  margin: 5px 0 0 0;
+  transition-property: background-color;
+  transition-duration: 1s;
+}
+
+/* Left */
+
+#memory {
+    color: @mauve;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 8rem;
+}
+
+#memory.warning {
+  color: @maroon;
+}
+
+#memory.critical {
+  color: @red;
+}
+
+#cpu {
+    color: @yellow;
+  border-radius: 0px 1rem 1rem 0px;
+}
+
+#cpu.warning {
+    color: @maroon;
+}
+#cpu.critical {
+    color: @red;
 }
 
 
+#tray {
+    color: @lavender;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 8rem;
+}
 
-/* Center */
 #custom-waybar-mpris{
   color: @teal;
-  border-radius: 1rem ;
-  margin-left: 10rem;
+  /* border-radius: 1rem ; */
+  border-radius: 0px 1rem 1rem 0px;
 
 }
 
@@ -90,6 +136,7 @@
 #clock {
   color: @mauve;
   border-radius: 1rem 0px 0px 1rem;
+  margin-left: 8rem;
 }
 
 #custom-weather {
@@ -131,7 +178,7 @@
 #pulseaudio {
   color: @maroon;
   border-radius: 0px 1rem 1rem 0px;
-  margin-right: 5rem;
+
 }
 
 
@@ -139,14 +186,19 @@
 
 
 #idle_inhibitor{
+    color: @peach;
   border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+  margin-left: 8rem;
 }
 
-
-
-#tray {
-  margin-right: 1rem;
+#custom-launcher{
+    color:@pink;
+  border-radius: 0;
+  margin-right: 2rem;
   /* border-radius: 1rem; */
   border-radius: 0px 1rem 1rem 0px;
+    
 }
+
+
+

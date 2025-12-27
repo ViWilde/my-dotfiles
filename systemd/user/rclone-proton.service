@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync local directory to Proton Drive with Rclone
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/rclone/rclone-proton.sh
+
+[Install]
+WantedBy=default.target
