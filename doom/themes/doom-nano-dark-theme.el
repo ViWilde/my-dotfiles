@@ -1,1 +1,1 @@
-/home/vivien/dotfiles/doom/local-packages/doom-nano-themes/doom-nano-dark-theme.el
+../local-packages/doom-nano-themes/doom-nano-dark-theme.el

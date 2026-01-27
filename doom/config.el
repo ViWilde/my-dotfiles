@@ -371,10 +371,16 @@ ARG has the same meaning as for `kill-sexp'."
 
     (message (shell-command-to-string cmd))))
 
+(defun coin-flip-msg ()
+  (interactive)
+  (message (if (zerop (mod (random 999) 2))
+               "Rats (1)" "Swallows (0)")))
+
 (defun coin-flip ()
   (interactive)
-  (message (if (zerop (mod (random 10000) 2))
-               "Heads (1)" "Tails (0)")))
+  (insert (if (zerop (mod (random 999) 2))
+               " (Rats)" " (Swallows)")))
+
 
 
 ;;;; Podcasts
@@ -1254,7 +1260,7 @@ converted to PDF at the same location."
 
 ;;;; Custom Key Groups
 (use-package! egme)
-(use-package! brotab)
+; (use-package! brotab)
 (use-package! tarot)
 (use-package! agda-input)
 ;; (use-package! jflex-mode)

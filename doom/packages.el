@@ -137,7 +137,7 @@
 
 
 ;;; Integrations
-(package! brotab :recipe (:local-repo "~/experiments/elisp/brotab"))
+; (package! brotab :recipe (:local-repo "~/experiments/elisp/brotab"))
 (package! counsel-spotify)
 (package! smudge)
 ;; (package! google-this)

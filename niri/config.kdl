@@ -15,15 +15,14 @@ workspace "ndrop"
 spawn-at-startup "niri" "msg" "action" "focus-workspace-down"
 spawn-at-startup "/home/vivien/bin/reopen-pdfs"
 
-spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Mauve"
+spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Lavender"
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-key-theme 'Emacs'"
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Dracula"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Catpuccin Macchiato Pink"
 spawn-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 
 // spawn-at-startup "libinput-gestures"
 spawn-at-startup "playerctld"
 
-spawn-sh-at-startup "sh -c 'swaybg -i ~/Pictures/backgrounds/flondon/welcome-textless.jpeg -m fill'"
 // spawn-sh-at-startup "kitten panel --edge=background cava"
 
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -41,6 +40,16 @@ spawn-sh-at-startup "systemctl start --user onedrive" // Why do we even have thi
 // spawn-sh-at-startup "python ~/.config/rclone/proton_rclone_2fa.py"
 
 // spawn-sh-at-startup "stasis" // TODO play with this
+
+
+
+cursor {
+    xcursor-theme "catppuccin-macchiato-lavender-cursors"
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+
 
 
 
@@ -71,7 +80,7 @@ environment {
 
     // GTK_USE_PORTAL "0"
 
-    GTK_THEME "catppuccin-macchiato-teal-standard+default"
+    GTK_THEME "catppuccin-macchiato-pink-standard+default"
 
     
     
@@ -167,7 +176,7 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "1920x1200@120.030"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -209,8 +218,8 @@ layout {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
         // The default preset widths are 1/3, 1/2 and 2/3 of the output.
-        proportion 0.33333
         proportion 0.5
+        proportion 0.33333
         proportion 0.66667
         proportion 1.0
 
@@ -273,7 +282,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        active-gradient from="#8bd5ca" to="#c6a0f6" angle=45 relative-to="workspace-view" 
+        active-gradient from="#8bd5ca" to="#f5bde6" angle=45 relative-to="workspace-view" 
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -462,6 +471,14 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id="polkit"
+    open-maximized-to-edges false
+    open-floating true
+}
+
+
+
 
 window-rule {
     match app-id="emacs-scratchpad"
@@ -609,7 +626,7 @@ binds {
     Mod+V hotkey-overlay-title="Vivaldi" {spawn "vivaldi";}
     Mod+E hotkey-overlay-title="Emacs" {spawn-sh "emacsclient -nc --eval '(doom/switch-to-scratch-buffer)'";}
     Mod+Shift+E {spawn-sh "emacsclient -nc --eval '(deft-new-file)'" ;}
-    Mod+X {spawn "emacsclient -nc --eval '(progn (doom/switch-to-scratch-buffer) (consult-buffer))'";}
+    // Mod+X {spawn "emacsclient -nc --eval '(progn (doom/switch-to-scratch-buffer) (consult-buffer))'";}
     Mod+n {spawn "nemo";}
     // Mod+Shift+T {spawn "~/bin/create-todo";}
     // Alt+Shift+Space {spawn "albert toggle";}
@@ -624,6 +641,7 @@ binds {
     // Mod+Shift+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggle"; }
     // Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "gapplication launch io.ulauncher.Ulauncher"; }
     Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
+    Mod+X hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
     // Mod+0 { spawn-sh "gapplication launch io.ulauncher.Ulauncher";}
 
     // Mod+0 repeat=false {spawn "kupfer";}
@@ -643,6 +661,8 @@ binds {
     // Scrathcpad
     Mod+Shift+N { spawn-sh "ndrop -c 'emacs-scratchpad' 'emacs --name=emacs-scratchpad'"; }
     Alt+3 {spawn-sh "ndrop -c 'com.mitchellh.ghostty' ghostty";}
+    Mod+P {spawn-sh "ndrop -c 'com.mitchellh.ghostty' ghostty";}
+    Mod+Z {spawn-sh "ndrop -c 'com.mitchellh.ghostty' ghostty";}
     Mod+Return {spawn-sh "ndrop -c 'comcurl 'http://localhost:43654/search?content_type=application'
 .mitchellh.ghostty' ghostty";}
     Mod+S {spawn-sh "dms ipc call dash toggle media";}
@@ -725,8 +745,8 @@ binds {
 	Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
 	Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
 
-    Mod+M {move-column-to-monitor-up;}
-    Mod+Shift+M {move-column-to-monitor-down;}
+    Mod+M {move-column-to-monitor-left;}
+    Mod+Shift+M {move-column-to-monitor-right;}
     
 
     // Alternative commands that move across workspaces when reaching
@@ -938,5 +958,4 @@ binds {
 // spawn-sh-at-startup "cosmic-ext-alternative-startup"
 spawn-sh-at-startup "dms run"
 spawn-sh-at-startup "dms ipc call inhibit disable"
-
-
+spawn-sh-at-startup "sh -c 'swaybg -i ~/Pictures/backgrounds/flondon/welcome-textless.jpeg -m fill'"
