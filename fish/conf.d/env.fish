@@ -56,6 +56,11 @@ if status is-interactive
     export PYTHONPATH="$HOME/drive/work/urap/desiapi/py:$PYTHONPATH"
     export PATH="$HOME/drive/work/urap/desiapi/bin:$PATH"
     export PATH="$HOME/Downloads/platform-tools:$PATH"
+    export PATH="$HOME/apps/mosek/11.1/tools/platform/<PLATFORM>/bin:$PATH"
 
+    export MATLABPATH=/usr/local/MATLAB/R2025a/bin/glnxa64
+
+    export GRB_LICENSE_FILE=/home/vivien/gurobi/gurobi.lic
+    export MOSEKLM_LICENSE_FILE=/home/vivien/mosek/mosek.lic
 
 end

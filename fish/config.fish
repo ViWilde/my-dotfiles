@@ -2,7 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
 
-    fish_config theme choose "Catppuccin Macchiato"
+    # fish_config theme choose "Catppuccin Macchiato"
+    fish_config theme choose "Rose Pine Moon"
 
     # alias "rm -rf"="echo Bad Idea"
     starship init fish | source

@@ -18,7 +18,7 @@ spawn-at-startup "/home/vivien/bin/reopen-pdfs"
 spawn-at-startup "gsettings set org.gnome.desktop.interface cursor-theme Catppuccin Macchiato Lavender"
 spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-key-theme 'Emacs'"
 // spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Catpuccin Macchiato Pink"
-spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme rose-pine-moon-gtk"
+spawn-at-startup "gsettings set org.gnome.desktop.interface gtk-theme Nordic"
 spawn-at-startup "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 
 // spawn-at-startup "libinput-gestures"
@@ -38,15 +38,11 @@ spawn-sh-at-startup "niri-session-manager"
 spawn-sh-at-startup "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK" // Why do we even have this?
 
 spawn-sh-at-startup "systemctl start --user onedrive" // Why do we even have this?
-spawn-at-startup "vicinae" "server"
-
 // spawn-sh-at-startup "python ~/.config/rclone/proton_rclone_2fa.py"
 
 // spawn-sh-at-startup "stasis" // TODO play with this
 
-debug {
-	honor-xdg-activation-with-invalid-serial
-}
+
 
 cursor {
     xcursor-theme "catppuccin-macchiato-lavender-cursors"
@@ -86,7 +82,7 @@ environment {
     // GTK_USE_PORTAL "0"
 
     // GTK_THEME "catppuccin-macchiato-pink-standard+default"
-    GTK_THEME "rose-pine-moon-gtk"
+    GTK_THEME "Nordic"
 
     
     
@@ -650,19 +646,13 @@ binds {
 
     // Mod+Shift+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggle"; }
     // Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "gapplication launch io.ulauncher.Ulauncher"; }
-    // Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
-    // Mod+X hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
-    // Mod+W hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery '!'"; }
-    Mod+X repeat=false { spawn "vicinae" "toggle"; }
-    Mod+Shift+X repeat=false { spawn "vicinae" "vicinae://launch/files/search"; }
-    Mod+W repeat=false {spawn "vicinae" "vicinae://launch/wm/switch-windows";}
-    Mod+B repeat=false {spawn "vicinae" "vicinae://launch/browser-extension/browse-tabs";}
-
-
+    Mod+D hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
+    Mod+X hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery ''"; }
+    Mod+W hotkey-overlay-title="Ulauncher" { spawn-sh "dms ipc call spotlight toggleQuery '!'"; }
     // Mod+0 { spawn-sh "gapplication launch io.ulauncher.Ulauncher";}
 
     // Mod+0 repeat=false {spawn "kupfer";}
-    // Mod+Shift+D  {spawn "kupfer";} 
+    Mod+Shift+D  {spawn "kupfer";} 
     // Mod+Shift+D  {spawn-sh "ulauncher-toggle; wtype 'f '"  ;} // File search
     // Alt+Tab {spawn-sh "ulauncher-toggle; wtype 'w '"  ;}
     // Mod+Shift+D hotkey-overlay-title="Launcher" { spawn "kupfer"; }
@@ -687,8 +677,8 @@ binds {
     Mod+Shift+S hotkey-overlay-title="Tidal" {spawn-sh "ndrop tidal-hifi";}
 
     //Rename workspace
-    // Mod+B {spawn-sh "niri msg action set-workspace-name $(zenity --entry --text='Workspace Name')";}
-    // Mod+Shift+B {unset-workspace-name;}
+    Mod+B {spawn-sh "niri msg action set-workspace-name $(zenity --entry --text='Workspace Name')";}
+    Mod+Shift+B {unset-workspace-name;}
 
 
 
@@ -977,5 +967,3 @@ binds {
 spawn-sh-at-startup "dms run"
 spawn-sh-at-startup "dms ipc call inhibit disable"
 spawn-sh-at-startup "sh -c 'swaybg -i ~/Pictures/backgrounds/flondon/welcome-textless.jpeg -m fill'"
-
-include "dms/windowrules.kdl"

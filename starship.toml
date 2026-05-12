@@ -25,8 +25,9 @@ $username🏳️‍⚧️[❯](fg:yellow)[❯](fg:white)[❯](fg:purple)[❯](fg
 # $env_var\
 # $docker_context\
 
-# palette = 'rose-pine-moon'
-palette = 'catppuccin_macchiato'
+palette = 'rose-pine-moon'
+# palette = 'catppuccin_macchiato'
+# palette = 'nord'
 
 
 

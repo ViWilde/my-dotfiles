@@ -34,6 +34,7 @@ exec_always "export BROWSER=/usr/bin/vivaldi"
 # Important startup stuff
 # exec_always "export WLR_NO_HARDWARE_CURSORS=1"
 # exec_always "export QT_QPA_PLATFORM=wayland;xcb"
+exec_always "export QT_QPA_PLATFORM=xcb"
 exec_always "export QT_QPA_PLATFORMTHEME=qt5ct"
 exec_always "export XDG_CURRENT_DESKTOP=i3wm"
 # exec_always 'gsettings set org.gnome.desktop.interface gtk-theme "Fantasma-GTK"'

@@ -64,7 +64,8 @@ keybind= alt+`=goto_split:previous
 keybind= alt+o=new_split:down
 keybind= alt+e=new_split:right
 
-theme = Catppuccin Macchiato
+theme = Rose Pine Moon
+# theme = Catppuccin Macchiato
 
 shell-integration = fish
 shell-integration-features = true

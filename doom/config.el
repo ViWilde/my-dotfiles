@@ -31,9 +31,10 @@
                                         ; available. You can either set `doom-theme' or manually load a theme with the
                                         ; `load-theme' function. This is the default:
                                         ; (setq doom-theme 'doom-magnus)
-;; (setq doom-theme 'doom-rose-pine-moon)
+(setq doom-theme 'doom-rose-pine-moon)
 (setq! catppuccin-flavor 'macchiato)
-(setq doom-theme 'catppuccin)
+;; (setq doom-theme 'catppuccin)
+;; (setq doom-theme 'doom-nord-aurora)
 ;; (setq doom-theme 'doom-nord)
 ;; (setq! doom-nord-brighter-comments t)
 ;; (setq! doom-nord-comment-bg t)
@@ -43,12 +44,14 @@
 (setq! doom-rose-pine-moon-brighter-modeline nil)
 ;; (setq! doom-rose-pine-brighter-text t)
 ;; (setq! doom-rose-pine-brighter-comments t)
-(setq doom-font (font-spec :family "iMWritingMono Nerd Font" :size 16))
+;; (setq doom-font (font-spec :family "iMWritingMono Nerd Font" :size 16))
+(setq doom-font (font-spec :family "Courier Prime Code" :size 16))
 ;; (setq doom-font (font-spec :family "fira code" :size 17))
                                         ; (setq doom-variable-pitch-font (font-spec :family "FairydustB" :size 15))
 ;; (setq doom-variable-pitch-font (font-spec :family "Liberation Serif" :size 15))
 ;; (setq! doom-variable-pitch-font (font-spec :family "Bona Nova" :size 15))
-(setq! doom-variable-pitch-font (font-spec :family "Noto Serif" :size 17))
+;; (setq! doom-variable-pitch-font (font-spec :family "Noto Serif" :size 17))
+(setq! doom-variable-pitch-font (font-spec :family "Courier Prime" :size 17))
 ;; (setq! doom-variable-pitch-font (font-spec :family "Comfortaa" :size 15))
 ;;; Transparency
 (set-frame-parameter nil 'alpha-background 0.98)
@@ -350,7 +353,7 @@ ARG has the same meaning as for `kill-sexp'."
   (let (
         (consult-ripgrep-args "rg --glob !*.pdf --null --line-buffered --color=never --max-columns=1000 --path-separator /   --smart-case --no-heading --line-number ."))
 
-    (consult-ripgrep "~/drive/rpg/5e/5e-srd-split")))
+    (consult-ripgrep "~/rpg/5e/5e-srd-split")))
 
 
 (defun cypher-search-srd ()
@@ -359,14 +362,14 @@ ARG has the same meaning as for `kill-sexp'."
   (let (
         (consult-ripgrep-args "rg -t rst --glob !*.pdf --null --line-buffered --color=never --max-columns=1000 --path-separator /   --smart-case --no-heading --line-number ."))
 
-    (consult-ripgrep "~/drive/rpg/cypher/cypher-system-reference")))
+    (consult-ripgrep "~/rpg/cypher/cypher-system-reference")))
 
 
 (defun dnd-wild-magic-roll ()
   "Roll on Wild Magic table, report result in echo area"
   (interactive)
   (let* ((l (+ 2 (random 249)))
-         (fname "~/drive/rpg/5e/5e-srd-split/wild-magic.md")
+         (fname "~/rpg/5e/5e-srd-split/wild-magic.md")
          (cmd (format "sed '%dq;d' %s" l fname)))
 
     (message (shell-command-to-string cmd))))
@@ -387,14 +390,14 @@ ARG has the same meaning as for `kill-sexp'."
 (defun read-podcast-meta (prompt initial)
   (lambda () (interactive)
     (let* (
-           (path (concat "/home/vivien/drive/podcast_transcripts/" initial (if (string-empty-p initial) "" "/") ) )
+           (path (concat "/home/vivien/podcast_transcripts/" initial (if (string-empty-p initial) "" "/") ) )
            (selected (read-file-name prompt path)))
       (consult-find-file selected)
       (with-current-buffer (find-buffer-visiting (expand-file-name selected))
         ))))
 
 (defun search-podcast-meta (initial)
-  (lambda () (interactive) (consult-ripgrep (concat "/home/vivien/drive/podcast_transcripts/" initial))))
+  (lambda () (interactive) (consult-ripgrep (concat "/home/vivien/podcast_transcripts/" initial))))
 
 (defalias #'read-magnus (read-podcast-meta "Statement: " "magnus_archives"))
 (defalias #'read-podcast (read-podcast-meta "Transcript: " ""))
@@ -754,9 +757,9 @@ converted to PDF at the same location."
     (follow-mode -1))
 
   (defun find-file-work ()
-    "Find a file starting at the ~/drive/work directory"
+    "Find a file starting at the ~/work directory"
     (interactive)
-    (consult-find-file (read-file-name "Find file: " "~/drive/work/")))
+    (consult-find-file (read-file-name "Find file: " "~/work/")))
 
 
 
@@ -978,9 +981,9 @@ converted to PDF at the same location."
          )
   ;; (setq! org-latex-pdf-process "xelatex -shell-escape -interaction nonstopmode %f")
   (setq! org-latex-pdf-process
-         '("xelatex -interaction nonstopmode %f"
-           "xelatex -interaction nonstopmode %f")) ;; for multiple passes
-  (setq! org-latex-compiler "xelatex")
+         '("lualatex -interaction nonstopmode -shell-escape %f"
+           "lualatex -interaction nonstopmode %f")) ;; for multiple passes
+  (setq! org-latex-compiler "lualatex")
   (add-to-list 'org-latex-classes
                '("extarticle"
                  "\\documentclass{extarticle}"
@@ -1033,13 +1036,13 @@ converted to PDF at the same location."
    completion-ignore-case t
    org-lookup-dnd-sources
    ' (
-      ("/home/vivien/drive/rpg/5e/core/phb.pdf" 1 4 4 t)
-      ("/home/vivien/drive/rpg/5e/core/Monster Manual.pdf" 1 4 4 nil)
-      ("/home/vivien/drive/rpg/5e/core/dmg.pdf" 1 1 1 t)
-      ("/home/vivien/drive/rpg/5e/unofficial/City_and_Wild.pdf" 0 2 2 nil)
-      ("/home/vivien/drive/rpg/5e/expansion/Volo's Guide to Monsters.pdf" 1 1 1 t)
-      ("/home/vivien/drive/rpg/5e/expansion/mordenkainens-tome-of-foes.pdf" 1 1 1 t)
-      ("/home/vivien/drive/rpg/5e/character options/COFSA The Compendium of Forgotten Secrets - Awakening (Abridged).pdf" 0 3 3 t))))
+      ("/home/vivien/rpg/5e/core/phb.pdf" 1 4 4 t)
+      ("/home/vivien/rpg/5e/core/Monster Manual.pdf" 1 4 4 nil)
+      ("/home/vivien/rpg/5e/core/dmg.pdf" 1 1 1 t)
+      ("/home/vivien/rpg/5e/unofficial/City_and_Wild.pdf" 0 2 2 nil)
+      ("/home/vivien/rpg/5e/expansion/Volo's Guide to Monsters.pdf" 1 1 1 t)
+      ("/home/vivien/rpg/5e/expansion/mordenkainens-tome-of-foes.pdf" 1 1 1 t)
+      ("/home/vivien/rpg/5e/character options/COFSA The Compendium of Forgotten Secrets - Awakening (Abridged).pdf" 0 3 3 t))))
 
 
 (after! geiser
@@ -1126,7 +1129,7 @@ converted to PDF at the same location."
 (add-hook 'text-mode-hook #'auto-save-visited-mode)
 (add-hook 'text-mode-hook #'visual-line-mode)
 (add-hook 'text-mode-hook #'hl-todo-mode)
-(add-hook 'text-mode-hook #'rainbow-delimiters-mode)
+;; (add-hook 'text-mode-hook #'rainbow-delimiters-mode)
 ;; (add-hook 'text-mode-hook #'electric-pair-mode)
 (add-hook! 'text-mode-hook (display-line-numbers-mode -1))
 (add-hook! 'org-mode-hook (display-line-numbers-mode -1))
@@ -1258,17 +1261,29 @@ converted to PDF at the same location."
   (let ((item (read-from-minibuffer "TODO: "))) (with-current-buffer (vi/open-todo-file)
                                                   (insert item ))))
 
-;;;; Custom Key Groups
+;;;; Use-package declarations
 (use-package! egme)
 ; (use-package! brotab)
 (use-package! tarot)
 (use-package! agda-input)
+(use-package! ef-themes
+  :demand t
+  ;; :init
+  ;; (setopt doom-theme nil)
+
+  ;; :config
+  ;; (ef-themes-load-random 'light)
+  )
+
+
+(load! "/home/vivien/experiments/elisp/rp-mode.el")
 ;; (use-package! jflex-mode)
 ;; (use-package! cup-java-mode)
 ;; (use-package! inherit-org)
 
 ;; (load-library 'egme)
 ;; (use-package! egme)
+;;;; Custom Key Groups
 (map!
  :leader
 

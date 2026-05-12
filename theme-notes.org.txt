@@ -10,3 +10,16 @@ Emacs: Nano-Dark
 Vivaldi: Nano Attempt
 Tilix: Nord
 BG: From https://github.com/dxnst/nord-backgrounds
+* How to change a theme
+1. Emacs
+2. Vivaldi browser
+3. Dark Reader
+4. GTK/QT/Kvantum
+5. DMS
+6. Fish
+7. Terminal
+8. Sioyek
+9. Ao3
+10. Tumblr
+11. Starship
+12. Launcher

@@ -36,7 +36,7 @@
        ;;hydra
        indent-guides     ; highlighted indent columns
        ligatures         ; ligatures and symbols to make your code pretty again
-       minimap           ; show a map of the code on the side
+       ;; minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
        ;;nav-flash         ; blink cursor line after big motions
        neotree           ; a project drawer, like NERDTree for vim
@@ -49,7 +49,7 @@
        ;; vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        ;; (window-select +switch-window)     ; visually switch windows
        ;; window-select     ; visually switch windows
-       workspaces        ; tab emulation, persistence & separate workspaces
+       ;; workspaces        ; tab emulation, persistence & separate workspaces
        zen               ; distraction-free coding or writing
 
        :editor
@@ -58,7 +58,7 @@
        fold              ; (nigh) universal code folding
        format  ; automated prettiness
        ;; god               ; run Emacs commands without modifier keys
-       lispy             ; vim for lisp, for people who don't like vim
+       ;; lispy             ; vim for lisp, for people who don't like vim
        ;; multiple-cursors  ; editing in many places at once
        ;; objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
@@ -87,12 +87,12 @@
 
        :tools
        ;; ansible
-       biblio
+       ;; biblio
        (debugger +lsp)          ; FIXME stepping through code, to help you add bugs
        ;; direnv
        ;; docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
-       ein               ; tame Jupyter notebooks with emacs
+       ;; ein               ; tame Jupyter notebooks with emacs
        eval     ; run code, run (also, repls)
        ;; gist              ; interacting with github gists
        (lookup +dictionary +offline +docsets)              ; navigate your code and its documentation
@@ -100,7 +100,7 @@
        (magit +forge)             ; a git porcelain for Emacs
        ;; make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       pdf               ; pdf enhancements
+       ;; pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        rgb               ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
@@ -110,14 +110,14 @@
        tree-sitter
 
        :os
-       (:if IS-MAC macos)  ; improve compatibility with macOS
+       ;; (:if IS-MAC macos)  ; improve compatibility with macOS
        tty               ; improve the terminal Emacs experience
 
        :lang
        ;; (roc +lsp)
        (agda +local +tree-sitter)              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
-       (cc +lsp +tree-sitter)                 ; C > C++ == 1
+       ;; (cc +lsp +tree-sitter)                 ; C > C++ == 1
        (clojure +lsp +tree-sitter)          ; java with a lisp
        common-lisp       ; if you've seen one lisp, you've seen them all
        coq               ; proofs-as-programs
@@ -126,7 +126,7 @@
        data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
        ;;dhall
-       (elixir +lsp +tree-sitter)            ; erlang done right
+       ;; (elixir +lsp +tree-sitter)            ; erlang done right
        ;; elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
@@ -137,19 +137,19 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        ;; (go +lsp)         ; the hipster dialect
-       (haskell +lsp +tree-sitter)     ; a language that's lazier than I am
+       ;; (haskell +lsp +tree-sitter)     ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
-       idris             ; a language you can depend on
+       ;; idris             ; a language you can depend on
        (json +lsp +tree-sitter)              ; At least it ain't XML
        ;; (java +lsp +tree-sitter) ; the poster child for carpal tunnel syndrome
-       ;; (javascript +tree-sitter)        ; all(hope(abandon(ye(who(enter(here))))))
+       ;; (javascript +lsp +tree-sitter)        ; all(hope(abandon(ye(who(enter(here))))))
        ;;(julia +lsp)             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        (latex +fold +lsp +cdlatex)             ; writing papers in Emacs has never been so fun
-       lean              ; for folks with too much to prove
+       ;; lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
        (lua +lsp +tree-sitter +fennel +moonscript)               ; one-based indices? one-based indices
-       (markdown +tree-sitter +lsp)          ; writing docs for people to ignore
+       (markdown +tree-sitter +grip)          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;; nix               ; I hereby declare "nix geht mehr!"
        ;; (ocaml +lsp +tree-sitter)             ; an objective camel
@@ -160,7 +160,7 @@
        ;;purescript        ; javascript, but functional
        (python +lsp +pyright +pyenv +tree-sitter)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
-       (racket +lsp +xp)         ; a DSL for DSLs
+       ;; (racket +lsp +xp)         ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;; (rest +jq)              ; Emacs as a REST client
        ;;rst               ; ReST in peace
@@ -173,7 +173,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       web               ; the tubes
+       (web +lsp +tree-sitter)               ; the tubes
        yaml              ; JSON, but readable
        ;; (zig +lsp +tree-sitter)               ; C, but simpler
 
@@ -183,7 +183,7 @@
        ;;(wanderlust +gmail)
 
        :app
-       calendar
+       ;; calendar
        ;; emms
        everywhere        ; *leave* Emacs!? You must be joking
        ;; irc               ; how neckbeards socialize

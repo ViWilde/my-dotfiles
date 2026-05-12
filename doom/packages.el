@@ -54,13 +54,14 @@
 
 ;;; Themes
 (package! catppuccin-theme)
+(package! ef-themes)
 
 ;;; Libraries
 (package! dash)
 (package! s)
 (package! ht)
 (package! plz :recipe (:local-repo "~/.config/doom/local-packages/plz" :build t ))
-(package! esxml)
+;; (package! esxml)
 ;; (package! djvu)
 
 (package! zotero)
@@ -68,11 +69,11 @@
 
 
 ;;; 516
-(package! boogie-friends)
+;; (package! boogie-friends)
 
 ;;;; Lisp/Scheme
 ;;(package! geiser-guile)
-(package! sotlisp)
+;; (package! sotlisp)
 (package! highlight-defined)
 (package! lisp-extra-font-lock)
 (package! nameless)
@@ -86,7 +87,7 @@
 (package! ox-pandoc)
 ;; (package! htmlize)
 (package! poet-theme)
-;; (package! afternoon-theme)
+(package! afternoon-theme)
 (package! olivetti)
 ;; (package! org-ml)
 (package! org-pandoc-import
@@ -122,14 +123,14 @@
 
 ;;; Random toys
 ;; (package! blink-search)
-(package! nov)
+;; (package! nov)
 (package! tldr)
 (package! info-plus)
 (package! w3m)
-(package! fzf)
-(package! zoxide)
+;; (package! fzf)
+;; (package! zoxide)
 ;; (package! dirvish)
-(package! inherit-org :recipe (:host github :repo "chenyanming/inherit-org"))
+;; (package! inherit-org :recipe (:host github :repo "chenyanming/inherit-org"))
 ;;; Mysteries
 ;; (package! lentic)
 ;; (package! symbol-overlay)
@@ -137,9 +138,9 @@
 
 
 ;;; Integrations
-; (package! brotab :recipe (:local-repo "~/experiments/elisp/brotab"))
-(package! counsel-spotify)
-(package! smudge)
+                                        ; (package! brotab :recipe (:local-repo "~/experiments/elisp/brotab"))
+;; (package! counsel-spotify)
+;; (package! smudge)
 ;; (package! google-this)
 
 ;;; Nano
@@ -169,8 +170,12 @@
 
 ;;; Etc
 ;; (package! autothemer)
-(package! fireplace)
+;; (package! fireplace)
 (package! denote)
 (package! consult-denote)
 (package! denote-explore)
 (package! zetteldeft)
+
+
+;; Ugh. I feel dirty.
+;; (package! copilot-chat :recipe (:host github :repo "chep/copilot-chat.el" :files ("*.el")))
