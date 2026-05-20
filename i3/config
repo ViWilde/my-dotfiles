@@ -385,7 +385,7 @@ bindsym $mod+x exec 'emacsclient --eval "(emacs-everywhere)"'
 bindsym $mod+Shift+e exec emacsclient  -nc --eval "(deft-new-file)"
 # bindsym $mod+\/ exec com.github.alainm23.planner.quick-add
 # bindsym $mod+n exec nextmatch Org.gnome.Nautilus
-# bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/rohan/drive/School")'
+# bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/vivien/drive/School")'
 bindsym $mod+Shift+n exec nemo
 # scratchpad handling
 #for_window [class="Mailspring"] move window to scratchpad

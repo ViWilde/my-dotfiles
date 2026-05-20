@@ -12,7 +12,7 @@ export LESSOPEN="| pygmentize -O style=monokai -g -f terminal256 %s"
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="/home/vivien/go/bin:$PATH"
-export PATH="/home/rohan/.local/bin:$PATH"
+export PATH="/home/vivien/.local/bin:$PATH"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -35,10 +35,10 @@ export PATH="$WINEPATH:$PATH"
 export MANPATH="$HOME/anaconda3/share/man:$HOME/funny-manpages:/usr/share/man:$MANPATH"
 # $EDITOR should open in terminal
 export BROWSER='/usr/bin/vivaldi-stable'
-export EDITOR="/home/rohan/bin/eclient"
+export EDITOR="/home/vivien/bin/eclient"
 export SUDO_EDITOR="emacsclient -c"
 # $VISUAL opens in GUI with non-daemon as alternate
-export VISUAL="/home/rohan/bin/eclient"
+export VISUAL="/home/vivien/bin/eclient"
 export TERMINAL='tilix'
 export GRAVEYARD="$HOME/.local/share/Trash"
 export TEXT_AID_TOO_EDITOR="emacsclient -c"
@@ -51,8 +51,8 @@ export LD_LIBRARY_PATH="$STK_INSTALL_DIR/bin:$LD_LIBRARY_PATH"
 export STK_CONFIG_DIR="$HOME/.config/stk-engine"
 
 
-#export PYTHONPATH="$HOME/.local/lib/python3.8/:/home/rohan/.local/lib/python3.8/site-packages"
-#export PYTHONHOME="$HOME/.local/lib/python3.8/:/home/rohan/.local/lib/python3.8/site-packages"
+#export PYTHONPATH="$HOME/.local/lib/python3.8/:/home/vivien/.local/lib/python3.8/site-packages"
+#export PYTHONHOME="$HOME/.local/lib/python3.8/:/home/vivien/.local/lib/python3.8/site-packages"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -356,8 +356,8 @@ export palantir=$(kdeconnect-cli -a --id-only|head -n 1)
 
 #source $HOME/.config/broot/launcher/bash/br
 
-# PATH="/home/rohan/perl5/bin${PATH:+:${PATH}}"; export PATH;
-# PERL5LIB="/home/rohan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-# PERL_LOCAL_LIB_ROOT="/home/rohan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-# PERL_MB_OPT="--install_base \"/home/rohan/perl5\""; export PERL_MB_OPT;
-# PERL_MM_OPT="INSTALL_BASE=/home/rohan/perl5"; export PERL_MM_OPT;
+# PATH="/home/vivien/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/home/vivien/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/home/vivien/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/home/vivien/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/home/vivien/perl5"; export PERL_MM_OPT;

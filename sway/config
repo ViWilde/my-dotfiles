@@ -388,7 +388,7 @@ bindsym $mod+x exec emacsclient -nc --eval "(progn (doom/switch-to-scratch-buffe
 bindsym $mod+e exec emacsclient -nc --eval "(doom/switch-to-scratch-buffer)"
 # bindsym $mod+\/ exec com.github.alainm23.planner.quick-add
 # bindsym $mod+n exec nextmatch Org.gnome.Nautilus
-# bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/rohan/drive/School")'
+# bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/vivien/drive/School")'
 bindsym $mod+Shift+n exec cosmic-files
 # scratchpad handling
 #for_window [class="Mailspring"] move window to scratchpad

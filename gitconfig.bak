@@ -1,6 +1,6 @@
 [user]
 	name = Rohan Goyal
-	email = rohan.goyal@berkeley.edu
+	email = vivien.goyal@berkeley.edu
 [credential]
 	helper = store
 [filter "lfs"]
@@ -9,7 +9,7 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	excludesFile = /home/rohan/.gitignore
+	excludesFile = /home/vivien/.gitignore
 [push]
 	default = simple
 [init]

@@ -4,7 +4,7 @@ Description=Kite Updater
 [Service]
 Type=oneshot
 StandardOutput=null
-ExecStart=/home/rohan/.local/share/kite/current/kite-update "update" "silent"
+ExecStart=/home/vivien/.local/share/kite/current/kite-update "update" "silent"
 
 [Install]
 WantedBy=multi-user.target

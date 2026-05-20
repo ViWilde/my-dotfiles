@@ -26,9 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export EDITOR="/home/rohan/bin/eclient"
+export EDITOR="/home/vivien/bin/eclient"
 export SUDO_EDITOR="emacsclient -c"
-export VISUAL="/home/rohan/bin/eclient"
+export VISUAL="/home/vivien/bin/eclient"
 export BROWSER='/usr/bin/firefox'
 export TERMINAL='tilix'
 

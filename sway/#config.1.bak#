@@ -223,15 +223,15 @@ exec "systemctl start --user cronie"
 exec "systemctl start --user spotify-listener"
 exec "systemctl start --user onedrive"
 exec_always --no-startup-id autotiling
-#exec /home/rohan/bin/vivaldi
+#exec /home/vivien/bin/vivaldi
 exec "systemctl start --user emacs"
 exec albert
 exec libinput-gestures
 exec "synapse -s"
-exec '/home/rohan/.config/polybar/launch.sh'
+exec '/home/vivien/.config/polybar/launch.sh'
 exec --no-startup-id "onedrive --monitor --confdir ~/.config/onedrivePersonal"
 exec --no-startup-id "compton -cb --config ~/.config/picom/picom.conf"
-exec-always --no-startup-id "feh --bg-scale /home/rohan/Pictures/Wallpapers/DSOTM.jpg"
+exec-always --no-startup-id "feh --bg-scale /home/vivien/Pictures/Wallpapers/DSOTM.jpg"
 # Window focus
 #bindsym $mod+v [class="Vivaldi-stable"] focus
 bindsym $mod+v exec nextmatch Vivaldi

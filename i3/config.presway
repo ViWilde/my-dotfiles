@@ -236,13 +236,13 @@ exec --no-startup-id "/usr/lib/geoclue-2.0/demos/agent"
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id "~/bin/autosuspend"
 exec_always --no-startup-id "~/bin/laptop.sh"
-exec_always --no-startup-id "feh --bg-scale /home/rohan/Pictures/Wallpapers/cyan_planets.jpg"
+exec_always --no-startup-id "feh --bg-scale /home/vivien/Pictures/Wallpapers/cyan_planets.jpg"
 exec --no-startup-id nm-applet
 exec volctl
 exec_always --no-startup-id autotiling
 exec libinput-gestures
 exec "ulauncher --no-window-shadow --hide-window"
-exec_always '/home/rohan/.config/polybar/launch.sh'
+exec_always '/home/vivien/.config/polybar/launch.sh'
 exec --no-startup-id "onedrive --monitor --confdir ~/.config/onedrivePersonal"
 exec --no-startup-id "compton -cb --config ~/.config/picom/picom.conf"
 exec tilix
@@ -269,7 +269,7 @@ bindsym $mod+e exec emacsclient -nc --eval "(progn (doom/switch-to-scratch-buffe
 bindsym $mod+x exec emacsclient -nc --eval "(doom/switch-to-scratch-buffer)"
 # bindsym $mod+\/ exec com.github.alainm23.planner.quick-add
 # bindsym $mod+n exec nextmatch Org.gnome.Nautilus
-# bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/rohan/drive/School")'
+# bindsym $mod+Shift+n exec emacsclient -nc --eval '(ranger "/home/vivien/drive/School")'
 bindsym $mod+Shift+n exec nemo
 # scratchpad handling
 #for_window [class="Mailspring"] move window to scratchpad

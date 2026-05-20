@@ -9,7 +9,7 @@
                                         ;e.g. GPG configuration, email
                                         ; clients, file templates and snippets.
 (setq user-full-name "Vivien Moriarty"
-      user-mail-address "goyal.rohan.03@gmail.com"
+      user-mail-address "goyal.vivien.03@gmail.com"
       )
 
 
@@ -332,7 +332,7 @@
 
 ;;; Misc variable modifications
 (sp-use-paredit-bindings)
-(add-to-list 'Info-directory-list "/home/rohan/drive/books/nonfic/sicp-texinfo" t)
+(add-to-list 'Info-directory-list "/home/vivien/drive/books/nonfic/sicp-texinfo" t)
 (add-to-list 'load-path "/home/vivien/.config/doom/local-packages")
 (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))

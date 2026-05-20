@@ -623,9 +623,9 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-home-shorten-agenda-source nil)
 
 
-  ;; (setq configuration-layer-elpa-archives '(("melpa" . "file:///home/rohan/experiments/emacs-misc/spacemacs-elpa-mirror/melpa/")
-  ;;                                           ("org" . "file:///home/rohan/experiments/emacs-misc/spacemacs-elpa-mirror/org/")
-  ;;                                           ("gnu" . "file:///home/rohan/experiments/emacs-misc/spacemacs-elpa-mirror/gnu/")))
+  ;; (setq configuration-layer-elpa-archives '(("melpa" . "file:///home/vivien/experiments/emacs-misc/spacemacs-elpa-mirror/melpa/")
+  ;;                                           ("org" . "file:///home/vivien/experiments/emacs-misc/spacemacs-elpa-mirror/org/")
+  ;;                                           ("gnu" . "file:///home/vivien/experiments/emacs-misc/spacemacs-elpa-mirror/gnu/")))
   ;; remote
   ;; (setq configuration-layer-elpa-archives
   ;;       '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
@@ -656,8 +656,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;(setq initial-frame-alist '((top . 40) (left . 300) (width . 138) (height . 38)))
                                         ;(require 'desktop-environment)
-  ;(add-to-list 'load-path "/home/rohan/experiments/emacs-misc/packages/emacs-todoist")
-  (add-to-list 'load-path "/home/rohan/experiments/emacs-misc/gmatscript.el")
+  ;(add-to-list 'load-path "/home/vivien/experiments/emacs-misc/packages/emacs-todoist")
+  (add-to-list 'load-path "/home/vivien/experiments/emacs-misc/gmatscript.el")
   (message "User Init Loaded")
   ;; (gcmh-mode 1)
   ;;(require 'zen-mode) Glitchy, so don't bother
@@ -704,7 +704,7 @@ you should place your code here."
   ;(setq plantuml-default-exec-mode 'executable)
 
   (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))
-  (add-to-list 'auto-mode-alist '("^/home/rohan/[.]xonshrc\\''" . xonsh-mode))
+  (add-to-list 'auto-mode-alist '("^/home/vivien/[.]xonshrc\\''" . xonsh-mode))
 
   (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
@@ -749,7 +749,7 @@ you should place your code here."
   (global-set-key (kbd "M-o") 'other-window)
 
   (setq org-export-with-smart-quotes t)
-                                        ;  (setq eclim-executable "/home/rohan/.eclipse/org.eclipse.platform_4.14.0_155965261_linux_gtk_x86_64/plugins/org.eclim_2.8.0/bin/eclim")
+                                        ;  (setq eclim-executable "/home/vivien/.eclipse/org.eclipse.platform_4.14.0_155965261_linux_gtk_x86_64/plugins/org.eclim_2.8.0/bin/eclim")
 
   (add-hook 'text-mode-hook #'auto-save-visited-mode)
   (add-hook 'text-mode-hook #'visual-line-mode)

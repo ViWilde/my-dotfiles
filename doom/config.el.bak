@@ -9,7 +9,7 @@
 ;;e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Rohan Goyal "
-      user-mail-address "goyal.rohan.03@gmail.com")
+      user-mail-address "goyal.vivien.03@gmail.com")
 
 ;;; Theming/Fonts
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -228,8 +228,8 @@
 
 
 ;;; Misc variable modifications
-(add-to-list 'Info-directory-list "/home/rohan/drive/books/nonfic/sicp-texinfo" t)
-(add-to-list 'load-path "/home/rohan/.config/doom/local-packages")
+(add-to-list 'Info-directory-list "/home/vivien/drive/books/nonfic/sicp-texinfo" t)
+(add-to-list 'load-path "/home/vivien/.config/doom/local-packages")
 (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("[.]org[.]txt\\'" . org-mode))
 (setq suggest-key-bindings nil)
@@ -456,13 +456,13 @@
    completion-ignore-case t
    org-lookup-dnd-sources
    '(
-     ("/home/rohan/drive/RPG/5e/core/phb.pdf" 1 4 4 t)
-     ("/home/rohan/drive/RPG/5e/core/Monster Manual.pdf" 1 4 4 nil)
-     ("/home/rohan/drive/RPG/5e/core/dmg.pdf" 1 1 1 t)
-     ("/home/rohan/drive/RPG/5e/unofficial/City_and_Wild.pdf" 0 2 2 nil)
-     ("/home/rohan/drive/RPG/5e/expansion/Volo's Guide to Monsters.pdf" 1 1 1 t)
-     ("/home/rohan/drive/RPG/5e/expansion/mordenkainens-tome-of-foes.pdf" 1 1 1 t)
-     ("/home/rohan/OneDrive_Personal/RPG/5e/character options/COFSA The Compendium of Forgotten Secrets - Awakening (Abridged).pdf" 0 3 3 t)
+     ("/home/vivien/drive/RPG/5e/core/phb.pdf" 1 4 4 t)
+     ("/home/vivien/drive/RPG/5e/core/Monster Manual.pdf" 1 4 4 nil)
+     ("/home/vivien/drive/RPG/5e/core/dmg.pdf" 1 1 1 t)
+     ("/home/vivien/drive/RPG/5e/unofficial/City_and_Wild.pdf" 0 2 2 nil)
+     ("/home/vivien/drive/RPG/5e/expansion/Volo's Guide to Monsters.pdf" 1 1 1 t)
+     ("/home/vivien/drive/RPG/5e/expansion/mordenkainens-tome-of-foes.pdf" 1 1 1 t)
+     ("/home/vivien/OneDrive_Personal/RPG/5e/character options/COFSA The Compendium of Forgotten Secrets - Awakening (Abridged).pdf" 0 3 3 t)
      ))
   )
 ;;; Programming Language Config
