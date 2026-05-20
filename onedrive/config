@@ -1,7 +1,7 @@
   sync_dir = "~/OneDrive_Personal"
   #skip_file = "~*|.~*|*.tmp"
   monitor_interval = "300"
-  skip_file = "~*|.~*|*.tmp|*.swp|*.partial|Sandman|Pictures|GitHub|Civilization IV|Civilization IV Beyond the Sword|Aspyr|Crud|Rohan|*.class|archives"
+  skip_file = "~*|.~*|*.tmp|*.swp|*.partial|Sandman|Pictures|GitHub|Civilization IV|Civilization IV Beyond the Sword|Aspyr|Crud|*.class|archives"
   skip_dir = "~*|.~*|*.tmp|Sandman|Pictures|GitHub|Civilization IV|Civilization IV Beyond the Sword|Aspyr|node_modules|__pycache__|.git|1Password|archives|_build|_*"
   log_dir = "/var/log/onedrive_personal/"
   # drive_id =
