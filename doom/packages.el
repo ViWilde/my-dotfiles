@@ -53,8 +53,8 @@
 ;; (package! with-editor :pin "391e76a256aeec6b9e4cbd733088f30c677d965b")
 
 ;;; Themes
-(package! catppuccin-theme)
-(package! ef-themes)
+;; (package! catppuccin-theme)
+;; (package! ef-themes)
 
 ;;; Libraries
 (package! dash)
@@ -89,7 +89,6 @@
 (package! poet-theme)
 (package! afternoon-theme)
 (package! olivetti)
-;; (package! org-ml)
 (package! org-pandoc-import
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
@@ -98,7 +97,7 @@
 
 ;;; Programming
 (package! evil-smartparens)
-(package! evil-cleverparens)
+;; (package! evil-cleverparens)
 (package! origami)
 (package! lsp-origami)
 (package! pydoc)
@@ -107,19 +106,13 @@
 (package! magit-delta)
 (package! rainbow-mode)
 (package! yasnippet-snippets)
+(package! ruff-format)
 
 (package! kdl-mode)
 
-;;; OPLSS
-;; (package! proof-general)
 ;;; Language Support
-;; (package! graphviz-dot-mode)
 (package! fish-mode)
 (package! sphinx-doc)
-
-;; (package! jflex-mode :recipe (:local-repo "~/dotfiles/doom/local-packages/jflex-mode"))
-;; (package! cup-java-mode :recipe (:local-repo "~/dotfiles/doom/local-packages/cup-java-mode"))
-
 
 ;;; Random toys
 ;; (package! blink-search)
@@ -138,10 +131,8 @@
 
 
 ;;; Integrations
-                                        ; (package! brotab :recipe (:local-repo "~/experiments/elisp/brotab"))
-;; (package! counsel-spotify)
+; (package! brotab :recipe (:local-repo "~/experiments/elisp/brotab"))
 ;; (package! smudge)
-;; (package! google-this)
 
 ;;; Nano
 ;; (package! nano-emacs :recipe (:type git :host github :repo "rougier/nano-emacs"))
@@ -169,7 +160,6 @@
 ;; (package! yequake)
 
 ;;; Etc
-;; (package! autothemer)
 ;; (package! fireplace)
 (package! denote)
 (package! consult-denote)

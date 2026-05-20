@@ -422,11 +422,11 @@ recent-windows {
 
 
 window-rule {
-    // Match Firefox windows with Gmail in title.
     match app-id=".*"
     opacity 0.9
     draw-border-with-background false
     open-maximized-to-edges true
+    // open-windowed-fullscreen true
     geometry-corner-radius 10
     clip-to-geometry true
 }
